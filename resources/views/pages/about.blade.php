@@ -15,6 +15,10 @@
 		No Hello!
 	@endif
 
+	@foreach($users as $user)
+		{{$user}}<br>
+	@endforeach
+
 </body>
 
 </html>

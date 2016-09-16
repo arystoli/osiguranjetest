@@ -15,9 +15,13 @@ class PagesController extends Controller
     {   
         $companyName = "Auto Hrvatska";
         $bool = false;
+
+
+        $users = array("Nino", "Katie", "Nino K", "Katie K");
         return view('pages.about')
         ->with("companyName", $companyName)
         ->with("bool", $bool)
+        ->with("users", $users)
         ;
     }
 }
