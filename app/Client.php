@@ -9,10 +9,10 @@ class Client extends Model
     protected $fillable = [
     	'name',
     	'surname'
-    	
+
     ];
 
-    public $timestamps = false;
+    //public $timestamps = false;
 
     protected $table = 'clients';
 }
