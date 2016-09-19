@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
+@extends('/layouts.layout')
 
-</head>
-<body>
+@section('title')
+	About
+@stop
 
+@section('body')
 	<h1>Test Naslov</h1>
 
 	<p>{{$companyName}}</p>
@@ -19,7 +19,6 @@
 		{{$user}}<br>
 	@endforeach
 
-</body>
+@stop
 
-</html>
 

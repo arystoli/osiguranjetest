@@ -34,3 +34,8 @@ Route::get('help', function () {
 Route::get('test', function () {
     return view('pages.test');
 });
+
+Route::resource('client','ClientController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
