@@ -27,6 +27,10 @@ Route::get('contact', function () {
     return view('pages.contact');
 });
 
+Route::get('admin', function(){
+	return view('pages.admin');
+});
+
 Route::get('help', function () {
     return view('pages.help');
 });
@@ -34,6 +38,10 @@ Route::get('help', function () {
 Route::get('test', function () {
     return view('pages.test');
 });
+
+Route::get('polica', array('as' => 'polica', 'uses' => 'PolicaController@index'))->middleware('auth');
+Route::post('polica', array('as' => 'polica', 'uses' => 'PolicaController@store'))->middleware('auth');
+
 Route::resource('json','TestJSONController');
 
 Route::resource('client','ClientController');
