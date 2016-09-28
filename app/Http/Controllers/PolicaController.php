@@ -38,7 +38,7 @@ class PolicaController extends Controller
     public function store(Request $request)
     {
         //
-        return $request->osiguranik;
+        return $request->ugovaratelj_id;
     }
 
     /**
