@@ -69,21 +69,20 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     <a href="{{ url('/login') }}">Login</a>
-                    <a href="{{ url('/register') }}">Register</a>
+                    <a href="{{ url('/register') }}">Registracija</a>
                 </div>
             @endif
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Auto Hrvatska Osiguranje
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="{{ Route('polica') }}">Izrada polica</a>
+                    <a href="{{ url('admin') }}">Administracija</a>
+                    <a href="{{ url('help') }}">Pomoć</a>
+                    
                 </div>
             </div>
         </div>
