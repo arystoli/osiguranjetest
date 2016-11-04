@@ -19,6 +19,8 @@
 		{{$user}}<br>
 	@endforeach
 
+	<h2>Auto Hrvatska about</h2>
+
 @stop
 
 
