@@ -42,8 +42,12 @@ Route::get('test', function () {
 Route::get('polica', array('as' => 'polica', 'uses' => 'PolicaController@index'))->middleware('auth');
 Route::post('polica', array('as' => 'polica', 'uses' => 'PolicaController@store'))->middleware('auth');
 
+//Testni dio za komunikaciju sa eurohercom
 Route::resource('json','TestJSONController');
+Route::get('ehsession', ['as' => 'ehsession', 'uses' => 'TestJSONController@session']);
 
+
+// Kraj testnog djela Euroherc
 Route::resource('client','ClientController');
 Auth::routes();
 
