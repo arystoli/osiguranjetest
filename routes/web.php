@@ -42,14 +42,15 @@ Route::get('test', function () {
 Route::get('polica', array('as' => 'polica', 'uses' => 'PolicaController@index'))->middleware('auth');
 Route::post('polica', array('as' => 'polica', 'uses' => 'PolicaController@store'))->middleware('auth');
 
-//Testni dio za komunikaciju sa eurohercom
+//Testni dio za komunikaciju sa eurohercom/////
+Route::get('ehsession', ['as' => 'ehsession', 'uses' => 'EuroHercController@getSession']);
+// Kraj testnog djela Euroherc/////////////////
+
+//Testni REST Guzzle Client
 Route::resource('json','TestJSONController');
-Route::resource('ehsession', 'TestJSONController@session');
+///////////////////////////////////////////////
 
-
-// Kraj testnog djela Euroherc
 Route::resource('client','ClientController');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index');
 

@@ -37,7 +37,7 @@ class TestJSONController extends Controller
       }
     }
 
-    public function session()
+    public function showSession()
     {
         try {
  
