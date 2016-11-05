@@ -43,7 +43,7 @@ Route::get('polica', array('as' => 'polica', 'uses' => 'PolicaController@index')
 Route::post('polica', array('as' => 'polica', 'uses' => 'PolicaController@store'))->middleware('auth');
 
 //Testni dio za komunikaciju sa eurohercom/////
-Route::get('ehsession', ['as' => 'ehsession', 'uses' => 'EuroHercController@getSession']);
+Route::get('eurohercsession', ['as' => 'eurohercsession', 'uses' => 'EuroHercController@getSession']);
 // Kraj testnog djela Euroherc/////////////////
 
 //Testni REST Guzzle Client
