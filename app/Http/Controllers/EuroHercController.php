@@ -18,7 +18,7 @@ class EuroHercController extends Controller
  
            $client = new GuzzleHttpClient();
  
-           $apiRequest = $client->request('GET', 'http://jsonplaceholder.typicode.com/posts/1', ['headers' => ['API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D']]);
+           $apiRequest = $client->request('GET', 'https://prodaja.euroherc.hr/ws.ao/api/v1/session', ['headers' => ['API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D']]);
  
           // echo $apiRequest->getStatusCode());
           // echo $apiRequest->getHeader('content-type'));

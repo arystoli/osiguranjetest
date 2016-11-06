@@ -47,7 +47,7 @@ Route::get('eurohercsession', ['as' => 'eurohercsession', 'uses' => 'EuroHercCon
 // Kraj testnog djela Euroherc/////////////////
 
 //Testni REST Guzzle Client
-//Route::resource('json','TestJSONController');
+Route::resource('json','TestJSONController');
 ///////////////////////////////////////////////
 
 Route::resource('client','ClientController');
