@@ -46,23 +46,105 @@ class AddTablesToPolicas extends Migration
             $table->string('ugovarateljEmail');
 
             //Info o polici i vozilu
-            $table->string('ranijeOsiguravajuceDrustvoSifra');
-            $table->string('brojRanijePolice');
-            $table->string('registarskaOznaka');
+            $table->string('RanijeOsiguravajuceDrustvoSifra');
+            $table->string('BrojRanijePolice');
+            $table->string('RegistarskaOznaka');
             $table->string('Marka');
-            $table->string('brojSasije');
-            $table->string('godinaProizvodnje');
-            $table->integer('snaga');
-            $table->integer('zapremina');
-            $table->integer('nosivost');
-            $table->integer('brojPutnika');
-            $table->string('boja');
-            $table->boolean('proba');
-            $table->string('tarifnaGrupaOznaka');
+            $table->string('BrojSasije');
+            $table->string('GodinaProizvodnje');
+            $table->integer('Snaga');
+            $table->integer('Zapremina');
+            $table->integer('Nosivost');
+            $table->integer('NrojPutnika');
+            $table->string('Noja');
+            $table->boolean('Proba');
+            $table->string('TarifnaGrupaOznaka');
             $table->string('TarifnaPodGrupaOznaka');
             $table->string('TarifniPopustOznaka');
             $table->string('TarifniDoplatakOznaka');
-            $table->integer('OsiguranaSvota');
+            $table->double('OsiguranaSvota');
+            $table->dateTimeTz('DatumPocetkaOsiguranja');
+            $table->dateTimeTz('DatumIstekaOsiguranja');
+            $table->double('TemeljnaPremija');
+            $table->double('RezijskiDodatakOznaka');
+            $table->string('BonusOznaka');
+            $table->string('MalusOznaka');
+            $table->boolean('AOPlusOmogoceno');
+            $table->boolean('AOPlusOdabrano');
+            $table->double('AOPlusPremija');
+            $table->boolean('DjelomicniKaskoOmoguceno');
+            $table->boolean('DjelomicniKaskoOdobreno');
+            $table->double('DjelomicniKaskoPremija');
+            $table->double('TarifniDoplatakIznos');
+            $table->double('TarifniPopustIznos');
+            $table->string('PosebniPopustOznaka');
+            $table->boolean('ZonaOmoguceno');
+            $table->boolean('ZonaOdabrano');
+            $table->string('ZonaOznaka');
+            $table->string('ZonaSvotaOznaka');
+            $table->string('ZonaVrstaVozacaOznaka');
+            $table->string('ZonaVrstaPutnikaOznaka');
+            $table->string('AutoNezgodaOznakaPremijskeGrupe');
+            $table->double('AutoNezgodaOsiguranaSvotaSmrt');
+            $table->double('AutoNezgodaOsiguranaSvotaInvaliditet');
+            $table->double('AutoNezgodaOsiguranaSvotaLijecenje');
+            $table->double('AutoNezgodaPremija');
+            $table->double('PorezTrosarinaPostotak');
+            $table->double('PorezTrosarinaIznos');
+            $table->double('Premija');
+            $table->integer('BrojZelenogKartona');
+            $table->double('ZonaIznos');
+            $table->double('ZonaOsiguranaSvota');
+            $table->dateTimeTz('DatumIzdavanja');
+            $table->boolean('PrikupljanjePodataka');
+            $table->string('BrojPoliceBonus');
+            $table->string('BrojPoliceBonusRazlog');
+            $table->dateTimeTz('DatumPocetkaDugorocnogOsiguranja');
+            $table->dateTimeTz('DatumIstekaDugorocnogOsiguranja');
+            $table->string('OsobaZaObracunOznaka'); 
+            $table->string('VozacOznaka'); 
+            $table->string('KilometaraGodisnjeOznaka'); ///
+            $table->dateTimeTz('DatumIzdavanjeDozvole');
+            $table->integer('Kilometraza');
+            $table->string('PopustViseVozilaOznaka'); 
+            $table->double('PopustViseVozilaPostotak');
+            $table->double('PopustViseVozilaIznos');
+            $table->string('PopustViseVozilaOsnov');
+            $table->string('PopustDugorocnoSifra');
+            $table->double('PopustDugorocnoPostotak');
+            $table->double('PopustDugorocnoIznos');
+            $table->string('PopustKorporativniOznaka');
+            $table->double('PopustKorporativniPostotak');
+            $table->double('PopustKorporativniIznos');
+            $table->string('NacinPlacanjaOznaka');
+            $table->double('NacinPlacanjaPostotak');
+            $table->double('NacinPlacanjaIznos');
+            $table->double('NacinPlacanjaIznos2');
+            $table->boolean('ZastitaBonusaOmoguceno');
+            $table->boolean('ZastitaBonusaOdabrano');
+            $table->double('ZastitaBonusaIznos');
+            $table->boolean('ZastitaVozacaOmoguceno');
+            $table->boolean('ZastitaVozacaOdabrano');
+            $table->double('ZastitaVozacaIznos');
+            $table->string('MjestoIzdavanja');
+            $table->string('Napomena');
+            $table->string('UvjetiOznaka');
+            $table->string('Cjenik');
+            $table->integer('RanijiBonu');
+            $table->integer('PlacanjeIznosGotovinePrvaRata');
+            $table->integer('PlacanjeBrojObroka');
+            $table->dateTimeTz('PlacanjeDatumDospijecaPrveRate');
+            $table->string('SredstvaPlacanjaOznaka');
+            $table->string('BankaKarticarOznaka');
+            $table->string('BrojRacuna');
+            $table->string('SerijskiBroj');
+            $table->string('Naputak');
+            $table->string('TehnickaKarakteristika');
+
+
+ 
+
+
             //TODO: Nastaviti iz priloženog PDF-a dodati ostatak polja
         });
     }
