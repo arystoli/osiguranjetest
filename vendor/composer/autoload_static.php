@@ -77,6 +77,7 @@ class ComposerStaticInit8d8c388eec60730658111caeb6ef588f
         'I' => 
         array (
             'Illuminate\\' => 11,
+            'Iber\\Generator\\' => 15,
         ),
         'G' => 
         array (
@@ -221,6 +222,10 @@ class ComposerStaticInit8d8c388eec60730658111caeb6ef588f
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
+        'Iber\\Generator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ignasbernotas/laravel-model-generator/src',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -310,6 +315,7 @@ class ComposerStaticInit8d8c388eec60730658111caeb6ef588f
     );
 
     public static $classMap = array (
+        'AddTablesToPolicas' => __DIR__ . '/../..' . '/database/migrations/2016_11_07_015606_add_tables_to_policas.php',
         'App\\Client' => __DIR__ . '/../..' . '/app/Client.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -319,9 +325,11 @@ class ComposerStaticInit8d8c388eec60730658111caeb6ef588f
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\ClientController' => __DIR__ . '/../..' . '/app/Http/Controllers/ClientController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\EuroHercController' => __DIR__ . '/../..' . '/app/Http/Controllers/EuroHercController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\PagesController' => __DIR__ . '/../..' . '/app/Http/Controllers/PagesController.php',
         'App\\Http\\Controllers\\PolicaController' => __DIR__ . '/../..' . '/app/Http/Controllers/PolicaController.php',
+        'App\\Http\\Controllers\\TestJSONController' => __DIR__ . '/../..' . '/app/Http/Controllers/TestJSONController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
@@ -358,6 +366,7 @@ class ComposerStaticInit8d8c388eec60730658111caeb6ef588f
         'Collective\\Html\\HtmlFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlFacade.php',
         'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+        'CreatePolicaTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_07_014301_create_polica_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
@@ -928,6 +937,12 @@ class ComposerStaticInit8d8c388eec60730658111caeb6ef588f
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'Iber\\Generator\\Commands\\MakeModelsCommand' => __DIR__ . '/..' . '/ignasbernotas/laravel-model-generator/src/Commands/MakeModelsCommand.php',
+        'Iber\\Generator\\Exceptions\\InvalidRuleException' => __DIR__ . '/..' . '/ignasbernotas/laravel-model-generator/src/Exceptions/InvalidRuleException.php',
+        'Iber\\Generator\\ModelGeneratorProvider' => __DIR__ . '/..' . '/ignasbernotas/laravel-model-generator/src/ModelGeneratorProvider.php',
+        'Iber\\Generator\\Utilities\\RuleProcessor' => __DIR__ . '/..' . '/ignasbernotas/laravel-model-generator/src/Utilities/RuleProcessor.php',
+        'Iber\\Generator\\Utilities\\SetGetGenerator' => __DIR__ . '/..' . '/ignasbernotas/laravel-model-generator/src/Utilities/SetGetGenerator.php',
+        'Iber\\Generator\\Utilities\\VariableConversion' => __DIR__ . '/..' . '/ignasbernotas/laravel-model-generator/src/Utilities/VariableConversion.php',
         'Illuminate\\Auth\\Access\\AuthorizationException' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/AuthorizationException.php',
         'Illuminate\\Auth\\Access\\Gate' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/Gate.php',
         'Illuminate\\Auth\\Access\\HandlesAuthorization' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/HandlesAuthorization.php',

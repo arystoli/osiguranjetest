@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Polica;
+
 class PolicaController extends Controller
 {
     /**
@@ -38,7 +40,11 @@ class PolicaController extends Controller
     public function store(Request $request)
     {
         //
-        return $request->ugovaratelj_id;
+        //return $request->ugovaratelj_id;
+        $polica = Polica::firstOrCreate(['osiguranikOib' => $request->input('osiguranikOib')]);
+        $request->session()->put('polica', $polica);
+
+        return redirect()->action('PolicaController@getPolicaKorakDrugi');
     }
 
     /**
