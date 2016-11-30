@@ -8,6 +8,8 @@
                     <div class="panel-heading"><h4>Ugovaratelj</h4></div>
 
                     <div class="panel-body">
+
+                        @include('errors.list')
                         {{Form::open(array('route' => 'polica', 'class' => 'form'))}}
 
                         <div class="form-group">
@@ -244,6 +246,22 @@
                          <div class="form-group">
                             {{Form::label('Nosivost:')}}
                             {{Form::number('Nosivost', null, array('required', 'class' => 'form-control', 'placeholder' => 'Nosivost vozila u kilogramima (kg)'))}}
+
+                        </div>
+                        <div class="form-group">
+                            {{Form::label('Broj Putnika:')}}
+                            {{Form::number('BrojPutnika', null, array('required', 'class' => 'form-control', 'placeholder' => 'Broj putnika'))}}
+
+                        </div>
+                        <div class="form-group">
+                            {{Form::label('Boja:')}}
+                            {{Form::number('Boja', null, array('required', 'class' => 'form-control', 'placeholder' => 'Nosivost vozila u kilogramima (kg)'))}}
+
+                        </div>
+
+                         <div class="form-group">
+                            {{Form::label('Proba:')}}
+                            {{Form::number('Proba', null, array('required', 'class' => 'form-control', 'placeholder' => 'Probne tablice'))}}
 
                         </div>
                     </div>

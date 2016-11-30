@@ -31,6 +31,11 @@ class PolicaController extends Controller
          
     }
 
+    public function getPolicaKorakDrugi(Request $request)
+    {
+        return view('polica.korak1', ['polica' => $request->session()->get('polica')]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
