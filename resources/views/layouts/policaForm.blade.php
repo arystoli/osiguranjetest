@@ -200,43 +200,57 @@
         </div>
     </div>
     <div class="row">
-    <div class="col-md-6">
+        <div class="col-md-6">
             <div class="panel-group">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h4>Premija</h4>
+                        <h4>Vozilo</h4>
                     </div>
                     <div class="panel-body">
                         {{Form::open(array('route' => 'polica', 'class' => 'form'))}}
                         <div class="form-group">
-                            {{Form::label('osiguranik')}}
-                            {{Form::text('osiguranik_id', null, array('required', 'class' => 'form-control', 'placeholder' => 'id ugovaratelja'))}}
+                            {{Form::label('Registarska Oznaka')}}
+                            {{Form::text('RegistarskaOznaka', null, array('required', 'class' => 'form-control', 'placeholder' => 'Registarska oznaka vozila'))}}
 
                         </div>
                         <div class="form-group">
-                            {{Form::label('Adresa:')}}
-                            {{Form::text('osiguranik_adresa', null, array('required', 'class' => 'form-control', 'placeholder' => 'adresa osiguranika'))}}
+                            {{Form::label('Marka:')}}
+                            {{Form::text('Marka', null, array('required', 'class' => 'form-control', 'placeholder' => 'Marka vozila'))}}
 
                         </div>
                         <div class="form-group">
-                            {{Form::label('Mjesto:')}}
-                            {{Form::text('osiguranik_mjesto', null, array('required', 'class' => 'form-control', 'placeholder' => 'mjesto osiguranika'))}}
+                            {{Form::label('Broj Šasije:')}}
+                            {{Form::text('BrojSasije', null, array('required', 'class' => 'form-control', 'placeholder' => 'Broj šasije vozila'))}}
 
                         </div>
                         <div class="form-group">
-                            {{Form::label('Telefon:')}}
-                            {{Form::text('osiguranik_telefon', null, array('required', 'class' => 'form-control', 'placeholder' => 'poštanski broj osiguranika'))}}
+                            {{Form::label('Godina proizvodnje:')}}
+                            {{Form::date('GodinaProizvodnje', null, array('required', 'class' => 'form-control', 'placeholder' => 'Godina proizvodnje vozila'))}}
 
                         </div>
+                        
                         <div class="form-group">
-                            {{Form::label('Naziv:')}}
-                            {{Form::text('osiguranik_naziv', null, array('required', 'class' => 'form-control', 'placeholder' => 'naziv osiguranika'))}}
-                            <button type="submit">Dalje</button>
-                            {{Form::close()}}
+                            {{Form::label('Snaga:')}}
+                            {{Form::number('Snaga', null, array('required', 'class' => 'form-control', 'placeholder' => 'Snaga vozila u kilowatima (kW) '))}}
+
+                        </div>
+
+                        <div class="form-group">
+                            {{Form::label('Zapremina:')}}
+                            {{Form::number('Zapremina', null, array('required', 'class' => 'form-control', 'placeholder' => 'Zapremina vozila u kubičnim centimetrima (ccm)'))}}
+                            
+
+                        </div>
+                         <div class="form-group">
+                            {{Form::label('Nosivost:')}}
+                            {{Form::number('Nosivost', null, array('required', 'class' => 'form-control', 'placeholder' => 'Nosivost vozila u kilogramima (kg)'))}}
 
                         </div>
                     </div>
+                    <button type="submit">Dalje</button>
+                            {{Form::close()}}
                 </div>
             </div>
         </div>
+    </div>
         
