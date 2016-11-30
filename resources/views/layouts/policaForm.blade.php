@@ -14,24 +14,24 @@
 
                         <div class="form-group">
                             {{Form::label('ugovaratelj')}}
-                            {{Form::text('ugovaratelj_id', null, array('required', 'class' => 'form-control', 'placeholder' => 'id ugovaratelja'))}}
+                            {{Form::text('ugovaratelj_id', null, array('class' => 'form-control', 'placeholder' => 'id ugovaratelja'))}}
 
                         </div>
 
                         <div class="form-group">
                             {{Form::label('Naziv:')}}
-                            {{Form::text('ugovarateljNaziv', null, array('required', 'class' => 'form-control', 'placeholder' => 'naziv ugovaratelja'))}}
+                            {{Form::text('ugovarateljNaziv', null, array('class' => 'form-control', 'placeholder' => 'naziv ugovaratelja'))}}
 
                         </div>
                         <div class="form-group">
                             {{Form::label('Ime:')}}
-                            {{Form::text('ugovarateljIme', null, array('required', 'class' => 'form-control', 'placeholder' => 'Ime ugovaratelja'))}}
+                            {{Form::text('ugovarateljIme', null, array('class' => 'form-control', 'placeholder' => 'Ime ugovaratelja'))}}
 
                         </div>
 
                         <div class="form-group">
                             {{Form::label('Prezime:')}}
-                            {{Form::text('ugovarateljPrezime', null, array('required', 'class' => 'form-control', 'placeholder' => 'Prezime ugovaratelja'))}}
+                            {{Form::text('ugovarateljPrezime', null, array('class' => 'form-control', 'placeholder' => 'Prezime ugovaratelja'))}}
 
                         </div>
 
@@ -44,7 +44,7 @@
 
                         <div class="form-group">
                             {{Form::label('Datum Rođenja:')}}
-                            {{Form::date('ugovarateljDatumRodjenja', null, array('required', 'class' => 'form-control', 'placeholder' => 'Datum ugovaratelja'))}}
+                            {{Form::date('ugovarateljDatumRodjenja', null, array('class' => 'form-control', 'placeholder' => 'Datum ugovaratelja'))}}
 
                         </div>
                         <div class="form-group">
@@ -59,17 +59,17 @@
 
                         <div class="form-group">
                             {{Form::label('Ulica:')}}
-                            {{Form::text('ugovarateljUlica', null, array('required', 'class' => 'form-control', 'placeholder' => 'adresa ugovaratelja'))}}
+                            {{Form::text('ugovarateljUlica', null, array('class' => 'form-control', 'placeholder' => 'adresa ugovaratelja'))}}
 
                         </div>
                         <div class="form-group">
                             {{Form::label('Poštanski broj:')}}
-                            {{Form::text('ugovarateljKucniBroj', null, array('required', 'class' => 'form-control', 'placeholder' => 'Ulica ugovaratelja'))}}
+                            {{Form::text('ugovarateljKucniBroj', null, array('class' => 'form-control', 'placeholder' => 'Ulica ugovaratelja'))}}
 
                         </div>
                         <div class="form-group">
                             {{Form::label('Naselje:')}}
-                            {{Form::text('ugovarateljNaselje', null, array('required', 'class' => 'form-control', 'placeholder' => 'Naselje ugovaratelja'))}}
+                            {{Form::text('ugovarateljNaselje', null, array('class' => 'form-control', 'placeholder' => 'Naselje ugovaratelja'))}}
 
                         </div>
 
@@ -77,13 +77,13 @@
 
                         <div class="form-group">
                             {{Form::label('Telefon:')}}
-                            {{Form::text('ugovarateljTelefon', null, array('required', 'class' => 'form-control', 'placeholder' => 'poštanski broj ugovaratelja'))}}
+                            {{Form::text('ugovarateljTelefon', null, array('class' => 'form-control', 'placeholder' => 'poštanski broj ugovaratelja'))}}
 
                         </div>
 
                         <div class="form-group">
                             {{Form::label('Email:')}}
-                            {{Form::text('ugovarateljEmail', null, array('required', 'class' => 'form-control', 'placeholder' => 'Email ugovaratelja'))}}
+                            {{Form::text('ugovarateljEmail', null, array('class' => 'form-control', 'placeholder' => 'Email ugovaratelja'))}}
 
                         </div>
                         
@@ -113,37 +113,37 @@
 
                         <div class="form-group">
                             {{Form::label('osiguranik')}}
-                            {{Form::text('osiguranik_id', null, array('required', 'class' => 'form-control', 'placeholder' => 'id osiguranika'))}}
+                            {{Form::text('osiguranik_id', null, array('class' => 'form-control', 'placeholder' => 'id osiguranika'))}}
 
                         </div>
 
                         <div class="form-group">
                             {{Form::label('Naziv:')}}
-                            {{Form::text('osiguranikNaziv', null, array('required', 'class' => 'form-control', 'placeholder' => 'naziv osiguranika'))}}
+                            {{Form::text('osiguranikNaziv', null, array('class' => 'form-control', 'placeholder' => 'naziv osiguranika'))}}
 
                         </div>
                         <div class="form-group">
                             {{Form::label('Ime:')}}
-                            {{Form::text('osiguranikIme', null, array('required', 'class' => 'form-control', 'placeholder' => 'Ime osiguranika'))}}
+                            {{Form::text('osiguranikIme', null, array('class' => 'form-control', 'placeholder' => 'Ime osiguranika'))}}
 
                         </div>
 
                         <div class="form-group">
                             {{Form::label('Prezime:')}}
-                            {{Form::text('osiguranikPrezime', null, array('required', 'class' => 'form-control', 'placeholder' => 'Prezime osiguranika'))}}
+                            {{Form::text('osiguranikPrezime', null, array('class' => 'form-control', 'placeholder' => 'Prezime osiguranika'))}}
 
                         </div>
 
                         <div class="form-group">
                             {{Form::label('OIB:')}}
-                            {{Form::text('osiguranikOib', null, array('required', 'class' => 'form-control', 'placeholder' => 'Oib osiguranika', 'maxlength' => 13))}}
+                            {{Form::text('osiguranikOib', null, array('class' => 'form-control', 'placeholder' => 'Oib osiguranika', 'maxlength' => 13))}}
 
                         </div>
 
 
                         <div class="form-group">
                             {{Form::label('Datum Rođenja:')}}
-                            {{Form::text('osiguranikDatumRodjenja', null, array('required', 'class' => 'form-control', 'placeholder' => 'Datum osiguranika'))}}
+                            {{Form::text('osiguranikDatumRodjenja', null, array('class' => 'form-control', 'placeholder' => 'Datum osiguranika'))}}
 
                         </div>
                         <div class="form-group">
@@ -158,17 +158,17 @@
                         
                         <div class="form-group">
                             {{Form::label('Ulica:')}}
-                            {{Form::text('osiguranikUlica', null, array('required', 'class' => 'form-control', 'placeholder' => 'adresa osiguranika'))}}
+                            {{Form::text('osiguranikUlica', null, array('class' => 'form-control', 'placeholder' => 'adresa osiguranika'))}}
 
                         </div>
                         <div class="form-group">
                             {{Form::label('Poštanski broj:')}}
-                            {{Form::text('osiguranikKucniBroj', null, array('required', 'class' => 'form-control', 'placeholder' => 'Ulica osiguranika'))}}
+                            {{Form::text('osiguranikKucniBroj', null, array('class' => 'form-control', 'placeholder' => 'Ulica osiguranika'))}}
 
                         </div>
                         <div class="form-group">
                             {{Form::label('Naselje:')}}
-                            {{Form::text('osiguranikNaselje', null, array('required', 'class' => 'form-control', 'placeholder' => 'Naselje osiguranika'))}}
+                            {{Form::text('osiguranikNaselje', null, array('class' => 'form-control', 'placeholder' => 'Naselje osiguranika'))}}
 
                         </div>
 
@@ -176,13 +176,13 @@
 
                         <div class="form-group">
                             {{Form::label('Telefon:')}}
-                            {{Form::text('osiguranikTelefon', null, array('required', 'class' => 'form-control', 'placeholder' => 'poštanski broj osiguranika'))}}
+                            {{Form::text('osiguranikTelefon', null, array('class' => 'form-control', 'placeholder' => 'poštanski broj osiguranika'))}}
 
                         </div>
 
                         <div class="form-group">
                             {{Form::label('Email:')}}
-                            {{Form::text('osiguranikEmail', null, array('required', 'class' => 'form-control', 'placeholder' => 'Email osiguranika'))}}
+                            {{Form::text('osiguranikEmail', null, array('class' => 'form-control', 'placeholder' => 'Email osiguranika'))}}
 
                         </div>
                         
@@ -202,7 +202,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 col-md-offset-3">
             <div class="panel-group">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
@@ -212,56 +212,56 @@
                         {{Form::open(array('route' => 'polica', 'class' => 'form'))}}
                         <div class="form-group">
                             {{Form::label('Registarska Oznaka')}}
-                            {{Form::text('RegistarskaOznaka', null, array('required', 'class' => 'form-control', 'placeholder' => 'Registarska oznaka vozila'))}}
+                            {{Form::text('RegistarskaOznaka', null, array('class' => 'form-control', 'placeholder' => 'Registarska oznaka vozila'))}}
 
                         </div>
                         <div class="form-group">
                             {{Form::label('Marka:')}}
-                            {{Form::text('Marka', null, array('required', 'class' => 'form-control', 'placeholder' => 'Marka vozila'))}}
+                            {{Form::text('Marka', null, array('class' => 'form-control', 'placeholder' => 'Marka vozila'))}}
 
                         </div>
                         <div class="form-group">
                             {{Form::label('Broj Šasije:')}}
-                            {{Form::text('BrojSasije', null, array('required', 'class' => 'form-control', 'placeholder' => 'Broj šasije vozila'))}}
+                            {{Form::text('BrojSasije', null, array('class' => 'form-control', 'placeholder' => 'Broj šasije vozila'))}}
 
                         </div>
                         <div class="form-group">
                             {{Form::label('Godina proizvodnje:')}}
-                            {{Form::date('GodinaProizvodnje', null, array('required', 'class' => 'form-control', 'placeholder' => 'Godina proizvodnje vozila'))}}
+                            {{Form::date('GodinaProizvodnje', null, array('class' => 'form-control', 'placeholder' => 'Godina proizvodnje vozila'))}}
 
                         </div>
                         
                         <div class="form-group">
                             {{Form::label('Snaga:')}}
-                            {{Form::number('Snaga', null, array('required', 'class' => 'form-control', 'placeholder' => 'Snaga vozila u kilowatima (kW) '))}}
+                            {{Form::number('Snaga', null, array('class' => 'form-control', 'placeholder' => 'Snaga vozila u kilowatima (kW) '))}}
 
                         </div>
 
                         <div class="form-group">
                             {{Form::label('Zapremina:')}}
-                            {{Form::number('Zapremina', null, array('required', 'class' => 'form-control', 'placeholder' => 'Zapremina vozila u kubičnim centimetrima (ccm)'))}}
+                            {{Form::number('Zapremina', null, array('class' => 'form-control', 'placeholder' => 'Zapremina vozila u kubičnim centimetrima (ccm)'))}}
                             
 
                         </div>
                          <div class="form-group">
                             {{Form::label('Nosivost:')}}
-                            {{Form::number('Nosivost', null, array('required', 'class' => 'form-control', 'placeholder' => 'Nosivost vozila u kilogramima (kg)'))}}
+                            {{Form::number('Nosivost', null, array('class' => 'form-control', 'placeholder' => 'Nosivost vozila u kilogramima (kg)'))}}
 
                         </div>
                         <div class="form-group">
                             {{Form::label('Broj Putnika:')}}
-                            {{Form::number('BrojPutnika', null, array('required', 'class' => 'form-control', 'placeholder' => 'Broj putnika'))}}
+                            {{Form::number('BrojPutnika', null, array('class' => 'form-control', 'placeholder' => 'Broj putnika'))}}
 
                         </div>
                         <div class="form-group">
                             {{Form::label('Boja:')}}
-                            {{Form::number('Boja', null, array('required', 'class' => 'form-control', 'placeholder' => 'Nosivost vozila u kilogramima (kg)'))}}
+                            {{Form::number('Boja', null, array('class' => 'form-control', 'placeholder' => 'Nosivost vozila u kilogramima (kg)'))}}
 
                         </div>
 
                          <div class="form-group">
                             {{Form::label('Proba:')}}
-                            {{Form::number('Proba', null, array('required', 'class' => 'form-control', 'placeholder' => 'Probne tablice'))}}
+                            {{Form::number('Proba', null, array('class' => 'form-control', 'placeholder' => 'Probne tablice'))}}
 
                         </div>
                     </div>

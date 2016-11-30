@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Polica;
+use App\Models\Polica;
 
 class PolicaController extends Controller
 {
