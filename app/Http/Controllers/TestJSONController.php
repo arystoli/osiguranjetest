@@ -10,6 +10,8 @@ use GuzzleHttp\Client as GuzzleHttpClient;
 
 use GuzzleHttp\Exception\RequestException;
 
+use App\MyLib\EurohercAPI as EHAPI;
+
 
 class TestJSONController extends Controller
 {
@@ -31,6 +33,9 @@ class TestJSONController extends Controller
  
           $content = json_decode($apiRequest->getBody()->getContents());
           dd($content);
+
+          $eh = new EHAPI();
+          $eh->testNumber();
  
       } catch (RequestException $re) {
           //For handling exception

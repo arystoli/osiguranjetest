@@ -30,6 +30,12 @@ class EurohercAPI {
 			echo $re;
 		}
 	}
+
+	public function testNumber()
+	{
+
+		echo "Radi klasa";
+	}
 }
 
 ?>
