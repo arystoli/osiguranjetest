@@ -10,6 +10,8 @@ use GuzzleHttp\Client as GuzzleHttpClient;
 
 use GuzzleHttp\Exception\RequestException;
 
+use App\MyLib\EurohercAPI as EHAPI;
+
 
 class TestJSONController extends Controller
 {
@@ -21,7 +23,16 @@ class TestJSONController extends Controller
     public function index()
     {
          try {
- 
+           $eh = new EHAPI();
+           echo "<h2>Test</h2>";
+           $eh->test();
+           echo "<h2>Session Testing</h2>";
+           $eh->getSessionTest();
+           echo "<h2>Sifarnici</h2>";
+           $eh->getSifarnici();
+
+
+           /*echo "TestEcho";
            $client = new GuzzleHttpClient();
  
            $apiRequest = $client->request('GET', 'http://jsonplaceholder.typicode.com/posts/1');
@@ -30,7 +41,11 @@ class TestJSONController extends Controller
           // echo $apiRequest->getHeader('content-type'));
  
           $content = json_decode($apiRequest->getBody()->getContents());
-          dd($content);
+
+          dd($content);*/
+
+          
+
  
       } catch (RequestException $re) {
           //For handling exception
