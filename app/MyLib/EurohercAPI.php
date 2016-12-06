@@ -40,14 +40,16 @@ class EurohercAPI {
 
 			$client = new GuzzleHttpClient(['base_uri' => 'https://prodaja.euroherc.hr/ws.ao', 'verify' => false]);
 			//$client->setDefaultOption('verify', false);
-			$apiRequest = $client->request('GET', 'https://prodaja.euroherc.hr/ws.ao/api/v1/session', ['headers' => ['API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D']]);
+			//$apiRequest = $client->request('GET', 'https://prodaja.euroherc.hr/ws.ao/api/v1/sifarnici', ['headers' => ['API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D', 'SessionID' => '0ab399a6-d6ea-41b1-804f-3a4b7271ff82']]);
 
 			//echo "Test";
-			$content = json_decode($apiRequest->getBody()->getContents());
+			/*$content = json_decode($apiRequest->getBody()->getContents());
 			var_dump($content);
-			echo $content->Data->SessionId;
+			echo $content->Data->SessionId;*/
 			//var_dump($content);
 			//dd($content);
+			  
+			
 
 		} catch (RequestException $re) {
           //For handling exception
@@ -61,7 +63,7 @@ class EurohercAPI {
 
 			$client = new GuzzleHttpClient(['base_uri' => 'https://prodaja.euroherc.hr/ws.ao', 'verify' => false]);
 			//$client->setDefaultOption('verify', false);
-			$apiRequest = $client->request('GET', 'https://prodaja.euroherc.hr/ws.ao/api/v1/bankakarticar', ['headers' => ['API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D', 'SessionID' => '0ab399a6-d6ea-41b1-804f-3a4b7271ff82']]);
+			$apiRequest = $client->request('GET', 'https://prodaja.euroherc.hr/ws.ao/api/v1/zonavrstaputnika', ['headers' => ['API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D', 'SessionID' => 'b1ad8db6-1d54-4c22-96cc-06dd460c1b69']]);
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());

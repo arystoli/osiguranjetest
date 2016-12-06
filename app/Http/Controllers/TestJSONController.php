@@ -27,10 +27,11 @@ class TestJSONController extends Controller
            echo "<h2>Test</h2>";
            $eh->test();
            echo "<h2>Session Testing</h2>";
-           $eh->getSessionTest();
+           //$eh->getSession();
            echo "<h2>Sifarnici</h2>";
            $eh->getSifarnici();
 
+           //return view('test');
 
            /*echo "TestEcho";
            $client = new GuzzleHttpClient();
