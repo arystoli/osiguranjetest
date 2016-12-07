@@ -25,11 +25,14 @@ class TestJSONController extends Controller
          try {
            $eh = new EHAPI();
            echo "<h2>Test</h2>";
-           $eh->test();
+           //$eh->test();
            echo "<h2>Session Testing</h2>";
            //$eh->getSession();
-           echo "<h2>Sifarnici</h2>";
-           $eh->getSifarnici();
+           echo "<h2>Sifarnici</h2>"; //Metoda dohvaća sve sifrarnike apsolutno
+           $eh->getSifarniciTest();
+           //$eh->getOsobaZaObracun();
+           //$eh->getKilometaraGodisnje();
+           $eh->getZonaVrstaPutnika();
 
            //return view('test');
 
