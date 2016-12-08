@@ -68,7 +68,7 @@ class EurohercAPI {
 				->where('Naziv', 'Euroherc')->get();
 			
 			$client = new GuzzleHttpClient(['base_uri' => 'https://prodaja.euroherc.hr', 'verify' => false]);
-			$client->setDefaultOption('verify', false);
+			//$client->setDefaultOption('verify', false);
 			$apiRequest = $client->request('GET', 'https://prodaja.euroherc.hr/ws.ao/api/v1/tarifnagrupa', ['headers' => ['API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D', 'SessionID' => $session_key]]);
 
 			//echo "Test";
