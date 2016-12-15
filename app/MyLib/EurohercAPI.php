@@ -33,18 +33,24 @@ class EurohercAPI {
 			$content = json_decode($apiRequest->getBody()->getContents());
 			$sessionLeaseTime = Carbon::today();
 			echo $sessionLeaseTime;
-			$sessionLeaseTime = $sessionLeaseTime->subHours(8);
-			echo $sessionLeaseTime;
+			$sessionLeaseTime = $sessionLeaseTime->subHours(2);
+			//echo $sessionLeaseTime;
+			//echo $content->Data->SessionId;
 			if(DB::table('session')
 				->where('Naziv', 'Euroherc')
 				->where('updated_at', '<', $sessionLeaseTime)
 				->count())
 			{
-				//echo $content->Data->SessionId;
+				echo $content->Data->SessionId;
 				
 				DB::table('session')
 				->where('Naziv', 'Euroherc')
 				->update(['session_key' => $content->Data->SessionId]);
+				echo "New session<br>";
+			}
+			else
+			{
+				echo "Old Session<br>";
 			}
 			
 			//dd($content);
@@ -67,13 +73,22 @@ class EurohercAPI {
 				->select('session_key')
 				->where('Naziv', 'Euroherc')->get();
 			
-			$client = new GuzzleHttpClient(['base_uri' => 'https://prodaja.euroherc.hr', 'verify' => false]);
+			$client = new GuzzleHttpClient(['base_uri' => 'https://prodaja.euroherc.hr/ws.ao', 'verify' => false]);
 			//$client->setDefaultOption('verify', false);
-			$apiRequest = $client->request('GET', 'https://prodaja.euroherc.hr/ws.ao/api/v1/tarifnagrupa', ['headers' => ['API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D', 'SessionID' => $session_key]]);
+			/*$apiRequest = $client->request('GET', 'https://prodaja.euroherc.hr/ws.ao/api/v1/tarifnagrupa', ['headers' => ['API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D', 'SessionID' => $session_key]]);*/
+			$apiRequest = $client->request('GET', 'https://prodaja.euroherc.hr/ws.ao/api/v1/sifarnici', ['headers' => ['API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D', 'SessionID' => '0456aaf1-10e4-44e7-90b1-bc57e34c51c5']]);
+
+			
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			echo "<h2>VARDUMP</h2>";
+			var_dump($content->TarifnaGrupa);
+			$file = fopen('sifarnici.txt', 'w');
+			$tekst = serialize($content);
+			fwrite($file, $tekst);
+			var_dump($content->Naselje->Data);
+			
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -92,7 +107,7 @@ class EurohercAPI {
 				->select('session_key')
 				->where('Naziv', 'Euroherc')->get();
 			
-			$client = new GuzzleHttpClient(['base_uri' => 'https://prodaja.euroherc.hr/ws.ao', 'verify' => false]);
+			$client = new GuzzleHttpClient(['base_uri' => 'https://prodaja.euroherc.hr/ws.ao/', 'verify' => false]);
 			//$client->setDefaultOption('verify', false);
 			$apiRequest = $client->request('GET', 'https://prodaja.euroherc.hr/ws.ao/api/v1/sifarnici', ['headers' => ['API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D', 'SessionID' => $session_key]]);
 
