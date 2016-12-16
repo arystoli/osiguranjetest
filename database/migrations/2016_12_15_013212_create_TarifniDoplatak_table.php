@@ -14,6 +14,13 @@ class CreateTarifniDoplatakTable extends Migration
     public function up()
     {
         //
+        Schema::create('TarifniDoplatak', function (Blueprint $table)
+        {
+            $table->string('Oznaka');
+            $table->string('Naziv');
+            $table->string('TarifnaGrupaOznaka');
+
+        });
     }
 
     /**

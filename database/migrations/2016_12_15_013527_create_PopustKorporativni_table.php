@@ -13,7 +13,12 @@ class CreatePopustKorporativniTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('PopustKorporativni', function (Blueprint $table)
+        {
+            $table->string('Oznaka');
+            $table->string('Naziv');
+            
+        });
     }
 
     /**

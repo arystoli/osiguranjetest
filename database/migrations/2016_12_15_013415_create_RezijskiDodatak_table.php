@@ -13,7 +13,13 @@ class CreateRezijskiDodatakTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('RezijskiDodatak', function (Blueprint $table)
+        {
+            $table->float('Oznaka');
+            $table->string('Naziv');
+            
+
+        });
     }
 
     /**

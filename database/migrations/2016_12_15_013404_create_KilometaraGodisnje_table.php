@@ -13,7 +13,13 @@ class CreateKilometaraGodisnjeTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('KilometaraGodisnje', function (Blueprint $table)
+        {
+            $table->string('Oznaka');
+            $table->string('Naziv');
+            
+
+        });
     }
 
     /**

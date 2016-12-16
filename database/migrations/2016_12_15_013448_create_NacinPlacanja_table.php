@@ -13,7 +13,12 @@ class CreateNacinPlacanjaTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('NacinPlacanja', function (Blueprint $table)
+        {
+            $table->string('Oznaka');
+            $table->string('Naziv');
+            
+        });
     }
 
     /**

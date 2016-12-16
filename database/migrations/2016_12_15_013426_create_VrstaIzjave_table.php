@@ -13,7 +13,12 @@ class CreateVrstaIzjaveTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('VrstaIzjave', function (Blueprint $table)
+        {
+            $table->string('Oznaka');
+            $table->string('Naziv');
+            
+        });
     }
 
     /**

@@ -13,7 +13,13 @@ class CreateMalusTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Malus', function (Blueprint $table)
+        {
+            $table->string('Oznaka');
+            $table->string('Naziv');
+            $table->string('TarifnaGrupaOznaka');
+
+        });
     }
 
     /**

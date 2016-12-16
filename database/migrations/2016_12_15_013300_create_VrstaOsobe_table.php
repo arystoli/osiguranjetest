@@ -13,7 +13,13 @@ class CreateVrstaOsobeTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('VrstaOsobe', function (Blueprint $table)
+        {
+            $table->integer('ID');
+            $table->string('Naziv');
+            $table->string('Oznaka');
+
+        });
     }
 
     /**

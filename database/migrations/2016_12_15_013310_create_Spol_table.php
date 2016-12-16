@@ -13,7 +13,13 @@ class CreateSpolTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Spol', function (Blueprint $table)
+        {
+            $table->string('Oznaka');
+            $table->string('Naziv');
+            
+
+        });
     }
 
     /**

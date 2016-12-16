@@ -14,6 +14,13 @@ class CreateBonusTable extends Migration
     public function up()
     {
         //
+        Schema::create('Bonus', function (Blueprint $table)
+        {
+            $table->string('Oznaka');
+            $table->string('Naziv');
+            $table->string('TarifnaGrupaOznaka');
+
+        });
     }
 
     /**

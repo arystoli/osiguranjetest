@@ -12,8 +12,13 @@ class CreateUvjetiTable extends Migration
      * @return void
      */
     public function up()
-    {
-        //
+    {        
+        Schema::create('Uvjeti', function (Blueprint $table)
+        {
+            $table->string('Oznaka');
+            $table->string('Naziv');
+            
+        });
     }
 
     /**

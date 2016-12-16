@@ -13,7 +13,13 @@ class CreateZonaTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Zona', function (Blueprint $table)
+        {
+            $table->string('Oznaka');
+            $table->string('Naziv');
+            
+
+        });
     }
 
     /**

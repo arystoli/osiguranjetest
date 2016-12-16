@@ -13,7 +13,13 @@ class CreateVozacTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Vozac', function (Blueprint $table)
+        {
+            $table->string('Oznaka');
+            $table->string('Naziv');
+            $table->string('VrstaOsobeOznaka');
+
+        });
     }
 
     /**

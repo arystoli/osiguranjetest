@@ -14,6 +14,13 @@ class CreateTarifniPopustTable extends Migration
     public function up()
     {
         //
+        Schema::create('TarifniPopust', function (Blueprint $table)
+        {
+            $table->string('Oznaka');
+            $table->string('Naziv');
+            $table->string('TarifnaGrupaOznaka');
+
+        });
     }
 
     /**

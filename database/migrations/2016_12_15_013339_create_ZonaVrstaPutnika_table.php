@@ -13,7 +13,13 @@ class CreateZonaVrstaPutnikaTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('ZonaVrstaPutnika', function (Blueprint $table)
+        {
+            $table->string('Oznaka');
+            $table->string('Naziv');
+            $table->string('ZonaOznaka');
+
+        });
     }
 
     /**

@@ -13,7 +13,13 @@ class CreateZonaVrstaVozacaTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('ZonaVrstaVozaca', function (Blueprint $table)
+        {
+            $table->string('Oznaka');
+            $table->string('Naziv');
+            $table->string('ZonaOznaka');
+
+        });
     }
 
     /**

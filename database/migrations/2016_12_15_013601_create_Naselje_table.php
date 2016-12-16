@@ -13,7 +13,13 @@ class CreateNaseljeTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Naselje', function (Blueprint $table)
+        {
+            $table->integer('Oznaka');
+            $table->string('Naziv');
+            $table->string('PTBroj');
+
+        });
     }
 
     /**

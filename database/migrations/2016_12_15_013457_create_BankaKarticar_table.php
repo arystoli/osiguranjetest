@@ -13,7 +13,13 @@ class CreateBankaKarticarTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('BankaKarticar', function (Blueprint $table)
+        {
+            $table->string('Oznaka');
+            $table->string('Naziv');
+            $table->string('SredstvaPlacanjaOznaka');
+
+        });
     }
 
     /**

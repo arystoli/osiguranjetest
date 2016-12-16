@@ -14,6 +14,13 @@ class CreateTarifnaPodGrupaTable extends Migration
     public function up()
     {
         //
+        Schema::create('TarifnaPodGrupa', function (Blueprint $table)
+        {
+            $table->string('Oznaka');
+            $table->string('Naziv');
+            $table->string('TarifnaGrupaOznaka');
+
+        });
     }
 
     /**

@@ -13,7 +13,12 @@ class CreatePopustViseVozilaTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('PopustViseVozila', function (Blueprint $table)
+        {
+            $table->string('Oznaka');
+            $table->string('Naziv');
+            
+        });
     }
 
     /**

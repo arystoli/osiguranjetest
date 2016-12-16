@@ -13,7 +13,13 @@ class CreateSredstvoPlacanjaTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('SredstvoPlacanja', function (Blueprint $table)
+        {
+            $table->string('Oznaka');
+            $table->string('Naziv');
+           
+
+        });
     }
 
     /**
