@@ -83,10 +83,16 @@ class EurohercAPI {
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
 			echo "<h2>VARDUMP</h2>";
+
 			var_dump($content->Naselje);
-			$file = fopen('sifarnici.txt', 'w');
-			$tekst = serialize($content);
-			fwrite($file, $tekst);
+			foreach ($content->Naselje->Data as $value) {
+				print "Oznaka = " . $value->Oznaka;
+				//var_dump($value->Oznaka);
+			}
+
+			//$file = fopen('sifarnici.txt', 'w');
+			//$tekst = serialize($content);
+			//fwrite($file, $tekst);
 			//var_dump($content->Naselje->Data);
 			
 			
