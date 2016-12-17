@@ -119,7 +119,8 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			return $content;
+			//var_dump($content);
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -128,7 +129,7 @@ class EurohercAPI {
 		}
 	}
 
-	public function getTarifnaGrupa()
+	public function getTarifnaGrupa($content)
 	{
 		try {
 				$eh = new EHAPI();
@@ -139,13 +140,15 @@ class EurohercAPI {
 				->select('session_key')
 				->where('Naziv', 'Euroherc')->get();
 			
-			$client = new GuzzleHttpClient(['base_uri' => 'https://prodaja.euroherc.hr/ws.ao', 'verify' => false]);
+			var_dump($content->Naselje);
+			/*$client = new GuzzleHttpClient(['base_uri' => 'https://prodaja.euroherc.hr/ws.ao', 'verify' => false]);
 			//$client->setDefaultOption('verify', false);
 			$apiRequest = $client->request('GET', 'https://prodaja.euroherc.hr/ws.ao/api/v1/tarifnagrupa', ['headers' => ['API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D', 'SessionID' => $session_key]]);
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
+
 			
 		} catch (RequestException $re) {
           //For handling exception
