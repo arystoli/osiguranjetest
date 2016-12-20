@@ -29,8 +29,9 @@ class TestJSONController extends Controller
            echo "<h2>Session Testing</h2>";
            //$eh->getSession();
            echo "<h2>Sifarnici</h2>"; //Metoda dohvaća sve sifrarnike apsolutno
-           $eh->getSifarniciTest();
-           $eh->getTarifnaGrupa();
+           //$eh->getSifarniciTest();
+           $content = $eh->getSifarnici();
+           $eh->getSpol($content);
            //$eh->getOsobaZaObracun();
            //$eh->getKilometaraGodisnje();
            //$eh->getZonaVrstaPutnika();

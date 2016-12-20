@@ -132,15 +132,24 @@ class EurohercAPI {
 	public function getTarifnaGrupa($content)
 	{
 		try {
-				$eh = new EHAPI();
+
+			foreach ($content->TarifnaGrupa->Data as $value) {
+				
+				DB::table('tarifnagrupa')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv]);
+
+				//var_dump($value->Oznaka);
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
 				$session_key=DB::table('session')
 				->select('session_key')
-				->where('Naziv', 'Euroherc')->get();
+				->where('Naziv', 'Euroherc')->get();*/
 			
-			var_dump($content->Naselje);
+			//var_dump($content->TarifnaGrupa->Data);
+
+			
 			/*$client = new GuzzleHttpClient(['base_uri' => 'https://prodaja.euroherc.hr/ws.ao', 'verify' => false]);
 			//$client->setDefaultOption('verify', false);
 			$apiRequest = $client->request('GET', 'https://prodaja.euroherc.hr/ws.ao/api/v1/tarifnagrupa', ['headers' => ['API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D', 'SessionID' => $session_key]]);
@@ -157,10 +166,17 @@ class EurohercAPI {
 		}
 	}
 
-	public function getTarifnaPodGrupa()
+	public function getTarifnaPodGrupa($content)
 	{
 		try {
-				$eh = new EHAPI();
+
+			foreach ($content->TarifnaPodGrupa->Data as $value) {
+				
+				DB::table('tarifnapodgrupa')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv, 'TarifnaGrupaOznaka' => $value->TarifnaGrupaOznaka]);
+
+				//var_dump($value->Oznaka);
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -174,7 +190,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -183,10 +199,17 @@ class EurohercAPI {
 		}
 	}
 
-	public function getTarifniDoplatak()
+	public function getTarifniDoplatak($content)
 	{
 		try {
-				$eh = new EHAPI();
+
+			foreach ($content->TarifniDoplatak->Data as $value) {
+				
+				DB::table('tarifnidoplatak')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv, 'TarifnaGrupaOznaka' => $value->TarifnaGrupaOznaka]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -200,7 +223,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -209,10 +232,17 @@ class EurohercAPI {
 		}
 	}
 
-	public function getTarifniPopust()
+	public function getTarifniPopust($content)
 	{
 		try {
-				$eh = new EHAPI();
+
+			foreach ($content->TarifniPopust->Data as $value) {
+				
+				DB::table('tarifnipopust')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv, 'TarifnaGrupaOznaka' => $value->TarifnaGrupaOznaka]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -226,7 +256,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -235,10 +265,17 @@ class EurohercAPI {
 		}
 	}
 
-	public function getBonus()
+	public function getBonus($content)
 	{
 		try {
-				$eh = new EHAPI();
+
+			foreach ($content->Bonus->Data as $value) {
+				
+				DB::table('bonus')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv, 'TarifnaGrupaOznaka' => $value->TarifnaGrupaOznaka]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -252,7 +289,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -261,10 +298,16 @@ class EurohercAPI {
 		}
 	}
 
-	public function getMalus()
+	public function getMalus($content)
 	{
 		try {
-				$eh = new EHAPI();
+			foreach ($content->Malus->Data as $value) {
+				
+				DB::table('malus')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv, 'TarifnaGrupaOznaka' => $value->TarifnaGrupaOznaka]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -278,7 +321,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -287,10 +330,16 @@ class EurohercAPI {
 		}
 	}
 
-	public function getVrstaOsobe()
+	public function getVrstaOsobe($content)
 	{
 		try {
-				$eh = new EHAPI();
+			foreach ($content->VrstaOsobe->Data as $value) {
+				
+				DB::table('vrstaosobe')->insert(['ID' => $value->ID, 'Naziv' => $value->Naziv, 'Oznaka' => $value->Oznaka]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -304,7 +353,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -313,10 +362,16 @@ class EurohercAPI {
 		}
 	}
 
-	public function getSpol()
+	public function getSpol($content)
 	{
 		try {
-				$eh = new EHAPI();
+			foreach ($content->Spol->Data as $value) {
+				
+				DB::table('spol')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -330,7 +385,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -340,10 +395,16 @@ class EurohercAPI {
 	}
 
 
-	public function getZona()
+	public function getZona($content)
 	{
 		try {
-				$eh = new EHAPI();
+			foreach ($content->Zona->Data as $value) {
+				
+				DB::table('zona')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -357,7 +418,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -366,10 +427,17 @@ class EurohercAPI {
 		}
 	}
 
-	public function getZonaSvota()
+	public function getZonaSvota($content)
 	{
 		try {
-				$eh = new EHAPI();
+
+			foreach ($content->ZonaSvota->Data as $value) {
+				
+				DB::table('zonasvota')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv, 'ZonaOznaka' => $value->ZonaOznaka]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -383,7 +451,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -392,10 +460,17 @@ class EurohercAPI {
 		}
 	}
 
-	public function getZonaVrstaPutnika()
+	public function getZonaVrstaPutnika($content)
 	{
 		try {
-				$eh = new EHAPI();
+
+			foreach ($content->ZonaVrstaPutnika->Data as $value) {
+				
+				DB::table('zonavrstaputnika')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv, 'ZonaOznaka' => $value->ZonaOznaka]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -409,7 +484,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -418,10 +493,17 @@ class EurohercAPI {
 		}
 	}
 
-	public function getZonaVrstaVozaca()
+	public function getZonaVrstaVozaca($content)
 	{
 		try {
-				$eh = new EHAPI();
+
+			foreach ($content->ZonaVrstaVozaca->Data as $value) {
+				
+				DB::table('zonavrstavozaca')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv, 'ZonaOznaka' => $value->ZonaOznaka]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -435,7 +517,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -444,10 +526,17 @@ class EurohercAPI {
 		}
 	}
 
-	public function getKilometaraGodisnje()
+	public function getKilometaraGodisnje($content)
 	{
 		try {
-				$eh = new EHAPI();
+
+			foreach ($content->KilometaraGodisnje->Data as $value) {
+				
+				DB::table('kilometaragodisnje')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -461,7 +550,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -470,10 +559,19 @@ class EurohercAPI {
 		}
 	}
 
-	public function getRezijskiDodatak()
+	public function getRezijskiDodatak($content)
 	{
 		try {
-				$eh = new EHAPI();
+			foreach ($content->RezijskiDodatak->Data as $value) {
+				
+				DB::table('rezijskidodatak')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv]);
+
+				
+			}
+
+
+
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -487,7 +585,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -496,10 +594,18 @@ class EurohercAPI {
 		}
 	}
 
-	public function getVrstaIzjave()
+	public function getVrstaIzjave($content)
 	{
 		try {
-				$eh = new EHAPI();
+			foreach ($content->VrstaIzjave->Data as $value) {
+				
+				DB::table('vrstaizjave')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv]);
+
+				
+			}
+
+
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -513,7 +619,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -522,10 +628,16 @@ class EurohercAPI {
 		}
 	}
 
-	public function getOsobaZaObracun()
+	public function getOsobaZaObracun($content)
 	{
 		try {
-				$eh = new EHAPI();
+			foreach ($content->OsobaZaObracun->Data as $value) {
+				
+				DB::table('osobazaobracun')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -539,7 +651,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -548,10 +660,17 @@ class EurohercAPI {
 		}
 	}
 
-	public function getPopustiKorporativni()
+	public function getPopustKorporativni($content)
 	{
 		try {
-				$eh = new EHAPI();
+
+			foreach ($content->PopustKorporativni->Data as $value) {
+				
+				DB::table('popustkorporativni')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -565,7 +684,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -574,10 +693,17 @@ class EurohercAPI {
 		}
 	}
 
-	public function getPopustVisaVozila()
+	public function getPopustViseVozila($content)
 	{
 		try {
-				$eh = new EHAPI();
+
+			foreach ($content->PopustViseVozila->Data as $value) {
+				
+				DB::table('popustvisevozila')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -591,7 +717,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -600,10 +726,17 @@ class EurohercAPI {
 		}
 	}
 
-	public function getPosebanPopust()
+	public function getPosebanPopust($content)
 	{
 		try {
-				$eh = new EHAPI();
+
+			foreach ($content->PosebanPopust->Data as $value) {
+				
+				DB::table('posebanpopust')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -617,7 +750,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -626,10 +759,16 @@ class EurohercAPI {
 		}
 	}
 
-	public function getNacinPlacanja()
+	public function getNacinPlacanja($content)
 	{
 		try {
-				$eh = new EHAPI();
+			foreach ($content->NacinPlacanja->Data as $value) {
+				
+				DB::table('nacinplacanja')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -643,7 +782,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -652,10 +791,17 @@ class EurohercAPI {
 		}
 	}
 
-	public function getSredstvoPlacanja()
+	public function getSredstvoPlacanja($content)
 	{
 		try {
-				$eh = new EHAPI();
+
+			foreach ($content->SredstvoPlacanja->Data as $value) {
+				
+				DB::table('sredstvoplacanja')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -669,7 +815,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -678,10 +824,18 @@ class EurohercAPI {
 		}
 	}
 
-	public function getBankaKarticar()
+	public function getBankaKarticar($content)
 	{
 		try {
-				$eh = new EHAPI();
+			//var_dump($content->BankaKarticar->Data);
+
+			foreach ($content->BankaKarticar->Data as $value) {
+				
+				DB::table('bankakarticar')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv, 'SretstvaPlacanjaOznaka' => $value->SretstvaPlacanjaOznaka]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -695,7 +849,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -704,10 +858,17 @@ class EurohercAPI {
 		}
 	}
 
-	public function getVozac()
+	public function getVozac($content)
 	{
 		try {
-				$eh = new EHAPI();
+
+			foreach ($content->Vozac->Data as $value) {
+				
+				DB::table('vozac')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv, 'VrstaOsobeOznaka' => $value->VrstaOsobeOznaka]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -721,7 +882,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -730,10 +891,17 @@ class EurohercAPI {
 		}
 	}
 
-	public function getUvjeti()
+	public function getUvjeti($content)
 	{
 		try {
-				$eh = new EHAPI();
+
+			foreach ($content->Uvjeti->Data as $value) {
+				
+				DB::table('uvjeti')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv]);
+
+				
+			}
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -747,7 +915,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -756,10 +924,17 @@ class EurohercAPI {
 		}
 	}
 
-	public function getNaselja()
+	public function getNaselje($content)
 	{
 		try {
-				$eh = new EHAPI();
+			foreach ($content->Naselje->Data as $value) {
+				
+				DB::table('naselje')->insert(['Oznaka' => $value->Oznaka, 'Naziv' => $value->Naziv, 'PTBroj' => $value->PTBroj]);
+
+				
+			}
+
+				/*$eh = new EHAPI();
 
 				$eh->getSession();
 
@@ -773,7 +948,7 @@ class EurohercAPI {
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			var_dump($content);
+			var_dump($content);*/
 			
 		} catch (RequestException $re) {
           //For handling exception

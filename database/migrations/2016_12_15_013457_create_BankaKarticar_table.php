@@ -17,7 +17,7 @@ class CreateBankaKarticarTable extends Migration
         {
             $table->string('Oznaka');
             $table->string('Naziv');
-            $table->string('SredstvaPlacanjaOznaka');
+            $table->string('SretstvaPlacanjaOznaka');
 
         });
     }

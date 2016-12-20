@@ -1,3 +1,5 @@
+
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
@@ -15,6 +17,13 @@
                         <div class="form-group">
                             {{Form::label('ugovaratelj')}}
                             {{Form::text('ugovaratelj_id', null, array('class' => 'form-control', 'placeholder' => 'id ugovaratelja'))}}
+
+                        </div>
+
+
+                        <div class="form-group">
+                            {{Form::label('Vrsta Osobe:')}}
+                            {{Form::select('ugovarateljVrsta', DB::table('vrstaosobe')->orderBy('ID')->pluck('Naziv','ID'), array('class' => 'form-control', 'placeholder' => 'vrsta ugovaratelja'))}}
 
                         </div>
 
@@ -69,7 +78,9 @@
                         </div>
                         <div class="form-group">
                             {{Form::label('Naselje:')}}
-                            {{Form::text('ugovarateljNaselje', null, array('class' => 'form-control', 'placeholder' => 'Naselje ugovaratelja'))}}
+                            
+                            
+                            {{Form::select('ugovarateljNaselje', DB::table('naselje')->orderBy('Naziv')->pluck('Naziv', 'Oznaka'), array('class' => 'form-control', 'placeholder' => 'Naselje ugovaratelja'))}}
 
                         </div>
 
@@ -116,6 +127,10 @@
                             {{Form::text('osiguranik_id', null, array('class' => 'form-control', 'placeholder' => 'id osiguranika'))}}
 
                         </div>
+
+                        <div class="form-group">
+                            {{Form::label('Vrsta Osobe:')}}
+                            {{Form::select('osiguranikVrsta', DB::table('vrstaosobe')->orderBy('ID')->pluck('Naziv','ID'), array('class' => 'form-control', 'placeholder' => 'vrsta osiguranika'))}}
 
                         <div class="form-group">
                             {{Form::label('Naziv:')}}
@@ -168,7 +183,7 @@
                         </div>
                         <div class="form-group">
                             {{Form::label('Naselje:')}}
-                            {{Form::text('osiguranikNaselje', null, array('class' => 'form-control', 'placeholder' => 'Naselje osiguranika'))}}
+                            {{Form::select('osiguranikNaselje', DB::table('naselje')->orderBy('Naziv')->pluck('Naziv', 'Oznaka'), array('class' => 'form-control', 'placeholder' => 'Naselje osiguranika'))}}
 
                         </div>
 
@@ -230,6 +245,42 @@
                             {{Form::date('GodinaProizvodnje', null, array('class' => 'form-control', 'placeholder' => 'Godina proizvodnje vozila'))}}
 
                         </div>
+
+                        <div class="form-group">
+                            {{Form::label('Tarifna Grupa:')}}
+                            <br>
+                            {{Form::select('TarifnaGrupa', DB::table('tarifnagrupa')->orderBy('Oznaka')->pluck('Naziv','Oznaka'), array('onchange' => 'tarifnagrupaJS(this.value)','class' => 'form-control', 'placeholder' => 'Tarifna grupa vozila'))}}
+
+                        </div>
+
+                        <div class="form-group">
+                            {{Form::label('Tarifna Podgrupa:')}}
+                            <select id='tarifnapodgrupa' class='form-control' name='tarifnapodgrupa'>
+                            <option value=''></option>
+
+                        </div>
+
+                        <script>
+                        function tarifnagrupaJS(val) {
+                            alert("izabrna neki" + val);
+                        }
+                        </script>
+
+                        <script>
+    $('#TarifnaGrupa').on('change', function(e){
+
+        console.log(e);
+        var Oznaka = e.target.value;
+        window.alert(Oznaka);
+        $.get('/baza/tarifnapodgrupa?Oznaka=' + Oznaka, function(data) {
+            console.log(data);
+            $('#tarifnapodgrupa').empty();
+            $.each(data, function(index,subCatObj){
+                $('#tarifnapodgrupa').append(''+subCatObj.name+'');
+            });
+        });
+    });
+</script>
                         
                         <div class="form-group">
                             {{Form::label('Snaga:')}}

@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Input;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,6 +45,17 @@ Route::post('polica', array('as' => 'polica', 'uses' => 'PolicaController@store'
 //Testni dio za komunikaciju sa eurohercom/////
 Route::get('eurohercsession', ['as' => 'eurohercsession', 'uses' => 'EuroHercController@getSession']);
 // Kraj testnog djela Euroherc/////////////////
+
+//Dio za dohvat dinamičkih podataka za popunjavanje formi za policu
+Route::get('/baza/tarifnapodgrupa',function()
+{
+    $tarifnaGrupaID = Input::get('Oznaka');
+    $tarifnaPodGrupa = DB::table('tarifnapodgrupa')->where('TarifnaGrupaOznaka','=',$tarifnaGrupaID)->get();
+    return $tarifnaPodGrupa;
+ 
+});
+
+//////////////////////////////////////////////////////////////////
 
 //Testni REST Guzzle Client
 Route::resource('json','TestJSONController');
