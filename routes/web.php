@@ -50,7 +50,7 @@ Route::get('eurohercsession', ['as' => 'eurohercsession', 'uses' => 'EuroHercCon
 Route::get('/baza/tarifnapodgrupa',function()
 {
     $tarifnaGrupaID = Input::get('Oznaka');
-    $tarifnaPodGrupa = DB::table('tarifnapodgrupa')->where('TarifnaGrupaOznaka','=',$tarifnaGrupaID)->get();
+    $tarifnaPodGrupa = DB::table('tarifnapodgrupa')->where('TarifnaGrupaOznaka','=',$tarifnaGrupaID)->pluck('Naziv', 'Oznaka');
     return $tarifnaPodGrupa;
  
 });

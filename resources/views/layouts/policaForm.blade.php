@@ -248,39 +248,21 @@
 
                         <div class="form-group">
                             {{Form::label('Tarifna Grupa:')}}
-                            <br>
-                            {{Form::select('TarifnaGrupa', DB::table('tarifnagrupa')->orderBy('Oznaka')->pluck('Naziv','Oznaka'), array('onchange' => 'tarifnagrupaJS(this.value)','class' => 'form-control', 'placeholder' => 'Tarifna grupa vozila'))}}
+                            
 
+                            <select name="TarifnaGrupa" onchange="tarifnagrupaJS(this.value)"><option value="01">Osobno vozilo</option><option value="02">Teretno vozilo</option><option value="03">Autobus</option><option value="04">Motocikl, moped</option><option value="05">Traktor</option><option value="06">Radni stroj</option><option value="07">Priključno vozilo</option><option value="12">Mot. vozila izvozne pl.</option><option value="13">Vozila s prenosivim reg. pločicama</option></select>
+                           
                         </div>
 
                         <div class="form-group">
                             {{Form::label('Tarifna Podgrupa:')}}
-                            <select id='tarifnapodgrupa' class='form-control' name='tarifnapodgrupa'>
-                            <option value=''></option>
+                            <select id="tarifnapodgrupa" class="form-control" name="tarifnapodgrupa"><option value="01">   do 44 kW</option><option value="02">preko 44 -  55 kW</option><option value="03">preko 55 -  74 kW</option><option value="04">preko 74 -  88 kW</option><option value="05">preko 88 - 110 kW</option><option value="06">preko 110- 150 kW</option><option value="07">preko 150 kW</option></select>
+                            </select>
 
                         </div>
 
-                        <script>
-                        function tarifnagrupaJS(val) {
-                            alert("izabrna neki" + val);
-                        }
-                        </script>
 
-                        <script>
-    $('#TarifnaGrupa').on('change', function(e){
 
-        console.log(e);
-        var Oznaka = e.target.value;
-        window.alert(Oznaka);
-        $.get('/baza/tarifnapodgrupa?Oznaka=' + Oznaka, function(data) {
-            console.log(data);
-            $('#tarifnapodgrupa').empty();
-            $.each(data, function(index,subCatObj){
-                $('#tarifnapodgrupa').append(''+subCatObj.name+'');
-            });
-        });
-    });
-</script>
                         
                         <div class="form-group">
                             {{Form::label('Snaga:')}}
