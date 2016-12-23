@@ -7,7 +7,9 @@
             <div class="panel-group">
                 <div class="panel panel-primary">
 
-                    <div class="panel-heading"><h4>Ugovaratelj</h4></div>
+                    <div class="panel-heading"><h4>Ugovaratelj</h4>
+                    <button class="btn btn-primary btn-sm" aria-pressed="false" onclick="kopirajVrijednosti()">Kopiraj vrijednosti u osiguranika </button>
+                    </div>
 
                     <div class="panel-body">
 
@@ -117,7 +119,8 @@
             <div class="panel-group">
                 <div class="panel panel-primary">
 
-                    <div class="panel-heading"><h4>Osiguranik</h4></div>
+                    <div class="panel-heading" name="prekopiranoUOsiguranika"><h4>Osiguranik</h4>
+                    </div>
 
                     <div class="panel-body">
                         {{Form::open(array('route' => 'polica', 'class' => 'form'))}}
@@ -158,7 +161,7 @@
 
                         <div class="form-group">
                             {{Form::label('Datum Rođenja:')}}
-                            {{Form::text('osiguranikDatumRodjenja', null, array('class' => 'form-control', 'placeholder' => 'Datum osiguranika'))}}
+                            {{Form::date('osiguranikDatumRodjenja', null, array('class' => 'form-control', 'placeholder' => 'Datum osiguranika'))}}
 
                         </div>
                         <div class="form-group">
