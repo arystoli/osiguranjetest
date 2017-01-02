@@ -17,6 +17,7 @@ return array(
     'CreateOsobaZaObracunTable' => $baseDir . '/database/migrations/2016_12_15_013440_create_OsobaZaObracun_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePolicaTable' => $baseDir . '/database/migrations/2016_11_07_014301_create_polica_table.php',
+    'CreatePolicasTableV2' => $baseDir . '/database/migrations/2017_01_02_035757_create_policas_table_v2.0.php',
     'CreatePopustKorporativniTable' => $baseDir . '/database/migrations/2016_12_15_013527_create_PopustKorporativni_table.php',
     'CreatePopustViseVozilaTable' => $baseDir . '/database/migrations/2016_12_15_013536_create_PopustViseVozila_table.php',
     'CreatePosebanPopustTable' => $baseDir . '/database/migrations/2016_12_15_013545_create_PosebanPopust_table.php',

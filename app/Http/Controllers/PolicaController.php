@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Http\Controllers\PolicaController;
+
 use App\Models\Polica;
 
 class PolicaController extends Controller
@@ -25,17 +27,19 @@ class PolicaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    /*public function create()
     {
         //
          
-    }
+    }*/
 
     public function getPolicaKorakDrugi(Request $request)
     {
         return view('polica.korak1', ['polica' => $request->session()->get('polica')]);
+        
     }
 
+   
     /**
      * Store a newly created resource in storage.
      *
@@ -58,10 +62,10 @@ class PolicaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    /*public function show($id)
     {
         //
-    }
+    }*/
 
     /**
      * Show the form for editing the specified resource.
@@ -69,10 +73,10 @@ class PolicaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    /*public function edit($id)
     {
         //
-    }
+    }*/
 
     /**
      * Update the specified resource in storage.
@@ -81,10 +85,10 @@ class PolicaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    /*public function update(Request $request, $id)
     {
         //
-    }
+    }*/
 
     /**
      * Remove the specified resource from storage.
@@ -92,7 +96,7 @@ class PolicaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    /*public function destroy($id)
     {
         //
     }
@@ -100,5 +104,5 @@ class PolicaController extends Controller
     public function formData(Request $request)
     {
         //Funkcija koja se pokreće nakon što klijent popuni podatke o osiguraniku?
-    }
+    }*/
 }

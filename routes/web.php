@@ -40,7 +40,10 @@ Route::get('test', function () {
 });
 
 Route::get('polica', array('as' => 'polica', 'uses' => 'PolicaController@index'))->middleware('auth');
-Route::post('polica', array('as' => 'polica', 'uses' => 'PolicaController@store'))->middleware('auth');
+//Route::post('polica', array('as' => 'polica', 'uses' => 'PolicaController@store'))->middleware('auth');
+Route::post('polica', 'PolicaController@store');
+
+Route::get('getPolicaKorakDrugi', 'PolicaController@getPolicaKorakDrugi');
 
 //Testni dio za komunikaciju sa eurohercom/////
 Route::get('eurohercsession', ['as' => 'eurohercsession', 'uses' => 'EuroHercController@getSession']);
