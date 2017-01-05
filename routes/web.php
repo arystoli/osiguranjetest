@@ -58,6 +58,63 @@ Route::get('/baza/tarifnapodgrupa',function()
  
 });
 
+Route::get('/baza/tarifnipopust',function()
+{
+    $tarifnaGrupaID = Input::get('Oznaka');
+    $tarifniPopust = DB::table('tarifnipopust')->where('TarifnaGrupaOznaka','=',$tarifnaGrupaID)->pluck('Naziv', 'Oznaka');
+    return $tarifniPopust;
+ 
+});
+
+Route::get('/baza/tarifnidoplatak',function()
+{
+    $tarifnaGrupaID = Input::get('Oznaka');
+    $tarifniDoplatak = DB::table('tarifnidoplatak')->where('TarifnaGrupaOznaka','=',$tarifnaGrupaID)->pluck('Naziv', 'Oznaka');
+    return $tarifniDoplatak;
+ 
+});
+
+Route::get('/baza/bonus',function()
+{
+    $tarifnaGrupaID = Input::get('Oznaka');
+    $bonus = DB::table('bonus')->where('TarifnaGrupaOznaka','=',$tarifnaGrupaID)->pluck('Naziv', 'Oznaka');
+    return $bonus;
+ 
+});
+
+Route::get('/baza/malus',function()
+{
+    $tarifnaGrupaID = Input::get('Oznaka');
+    $malus = DB::table('malus')->where('TarifnaGrupaOznaka','=',$tarifnaGrupaID)->pluck('Naziv', 'Oznaka');
+    return $malus;
+ 
+});
+
+Route::get('/baza/zonasvota',function()
+{
+    $zonaOznaka = Input::get('Oznaka');
+    $zonasvota = DB::table('zonasvota')->where('ZonaOznaka','=',$zonaOznaka)->pluck('Naziv', 'Oznaka');
+    return $zonasvota;
+ 
+});
+
+Route::get('/baza/zonavrstavozaca',function()
+{
+    $zonaOznaka = Input::get('Oznaka');
+    $zonavozac = DB::table('zonavrstavozaca')->where('ZonaOznaka','=',$zonaOznaka)->pluck('Naziv', 'Oznaka');
+    return $zonavozac;
+ 
+});
+
+Route::get('/baza/zonavrstaputnika',function()
+{
+    $zonaOznaka = Input::get('Oznaka');
+    $zonavozac = DB::table('zonavrstaputnika')->where('ZonaOznaka','=',$zonaOznaka)->pluck('Naziv', 'Oznaka');
+    return $zonavozac;
+ 
+});
+
+
 //////////////////////////////////////////////////////////////////
 
 //Testni REST Guzzle Client

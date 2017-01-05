@@ -60,7 +60,7 @@ class CreatePolicasTableV2 extends Migration
             $table->integer('Snaga')->nullable();
             $table->integer('Zapremina')->nullable();
             $table->integer('Nosivost')->nullable();
-            $table->integer('NrojPutnika')->nullable();
+            $table->integer('BrojPutnika')->nullable();
             $table->string('Boja')->nullable();
             $table->boolean('Proba')->nullable();
             $table->string('TarifnaGrupaOznaka')->nullable();

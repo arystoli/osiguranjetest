@@ -1,13 +1,83 @@
 function tarifnagrupaJS(val) {
 	        $.get('http://osiguranje-dev/baza/tarifnapodgrupa?Oznaka=' + val, function(data) {
 		            console.log(data);
-		            $('#tarifnapodgrupa').empty();
+		            $('#TarifnaPodGrupaOznaka').empty();
 
 		            $.each(data, function(index,value){
-			$('#tarifnapodgrupa').append(new Option(value, index));
+			$('#TarifnaPodGrupaOznaka').append(new Option(value, index));
 		            });
 	        });
+
+			$.get('http://osiguranje-dev/baza/tarifnipopust?Oznaka=' + val, function(data) {
+		            console.log(data);
+		            $('#TarifniPopustOznaka').empty();
+
+		            $.each(data, function(index,value){
+			$('#TarifniPopustOznaka').append(new Option(value, index));
+		            });
+	        });
+
+			$.get('http://osiguranje-dev/baza/tarifnidoplatak?Oznaka=' + val, function(data) {
+		            console.log(data);
+		            $('#TarifniDoplatakOznaka').empty();
+
+		            $.each(data, function(index,value){
+			$('#TarifniDoplatakOznaka').append(new Option(value, index));
+		            });
+	        });
+
+			$.get('http://osiguranje-dev/baza/bonus?Oznaka=' + val, function(data) {
+		            console.log(data);
+		            $('#BonusOznaka').empty();
+
+		            $.each(data, function(index,value){
+			$('#BonusOznaka').append(new Option(value, index));
+		            });
+	        });
+
+			$.get('http://osiguranje-dev/baza/malus?Oznaka=' + val, function(data) {
+		            console.log(data);
+		            $('#MalusOznaka').empty();
+
+		            $.each(data, function(index,value){
+			$('#MalusOznaka').append(new Option(value, index));
+		            });
+	        });
+
 }
+
+function zonaJS(val) {
+
+		$.get('http://osiguranje-dev/baza/zonasvota?Oznaka=' + val, function(data) {
+		            console.log(data);
+		            $('#ZonaSvotaOznaka').empty();
+
+		            $.each(data, function(index,value){
+			$('#ZonaSvotaOznaka').append(new Option(value, index));
+		            });
+	        });
+
+		$.get('http://osiguranje-dev/baza/zonavrstavozaca?Oznaka=' + val, function(data) {
+		            console.log(data);
+		            $('#ZonaVrstaVozacaOznaka').empty();
+
+		            $.each(data, function(index,value){
+			$('#ZonaVrstaVozacaOznaka').append(new Option(value, index));
+		            });
+	        });
+
+		$.get('http://osiguranje-dev/baza/zonavrstaputnika?Oznaka=' + val, function(data) {
+		            console.log(data);
+		            $('#ZonaVrstaPutnikaOznaka').empty();
+
+		            $.each(data, function(index,value){
+			$('#ZonaVrstaPutnikaOznaka').append(new Option(value, index));
+		            });
+	        });
+		
+
+}
+
 function kopirajVrijednosti() {
 	document.getElementsByName("prekopiranoUOsiguranika")[0].innerHTML = "<h4>Osiguranik</h4> <button class='btn btn-primary btn-sm' aria-pressed='false'>Uspješno kopirano</button>";	
 	document.getElementsByName("osiguranik_id")[0].value = document.getElementsByName("ugovaratelj_id")[0].value;

@@ -73,9 +73,16 @@
                             {{Form::text('ugovarateljUlica', null, array('class' => 'form-control', 'placeholder' => 'adresa ugovaratelja'))}}
 
                         </div>
+
+                        <div class="form-group">
+                            {{Form::label('Kućni broj:')}}
+                            {{Form::text('ugovarateljKucniBroj', null, array('class' => 'form-control', 'placeholder' => 'kucni broj ugovaratelja'))}}
+
+                        </div>
+
                         <div class="form-group">
                             {{Form::label('Poštanski broj:')}}
-                            {{Form::text('ugovarateljKucniBroj', null, array('class' => 'form-control', 'placeholder' => 'Ulica ugovaratelja'))}}
+                            {{Form::text('ugovarateljPostanskiBroj', null, array('class' => 'form-control', 'placeholder' => 'Ulica ugovaratelja'))}}
 
                         </div>
                         <div class="form-group">
@@ -179,11 +186,19 @@
                             {{Form::text('osiguranikUlica', null, array('class' => 'form-control', 'placeholder' => 'adresa osiguranika'))}}
 
                         </div>
+
                         <div class="form-group">
-                            {{Form::label('Poštanski broj:')}}
-                            {{Form::text('osiguranikKucniBroj', null, array('class' => 'form-control', 'placeholder' => 'Ulica osiguranika'))}}
+                            {{Form::label('Kućni broj:')}}
+                            {{Form::text('osiguranikKucniBroj', null, array('class' => 'form-control', 'placeholder' => 'kucni broj osiguranika'))}}
 
                         </div>
+
+                        <div class="form-group">
+                            {{Form::label('Poštanski broj:')}}
+                            {{Form::text('osiguranikPostanskiBroj', null, array('class' => 'form-control', 'placeholder' => 'postanski broj osiguranika'))}}
+
+                        </div>
+                       
                         <div class="form-group">
                             {{Form::label('Naselje:')}}
                             {{Form::select('osiguranikNaselje', DB::table('naselje')->orderBy('Naziv')->pluck('Naziv', 'Oznaka'), array('class' => 'form-control', 'placeholder' => 'Naselje osiguranika'))}}
