@@ -238,6 +238,54 @@
 
                         </div>
 
+                        <div class="form-group">
+                            {{Form::label('Temeljna premija:')}}
+                            {{Form::number('TemeljnaPremija', null, array('class' => 'form-control', 'placeholder' => 'premija'))}}
+
+                        </div>
+
+
+                        <div class="form-group">
+                            {{Form::label('Prikupljanje podataka:')}}
+                            {{Form::label('DA')}}
+                            {{Form::radio('PrikupljanjePodataka', '1')}}
+                            {{Form::label('NE')}}
+                            {{Form::radio('PrikupljanjePodataka', '0')}}
+
+                        </div>
+
+                        <div class="form-group">
+                            {{Form::label('Broj Police Bonus:')}}
+                            {{Form::text('BrojPoliceBonus', null, array('class' => 'form-control', 'placeholder' => 'Broj police za prijenos bonusa'))}}
+                        </div>
+
+                        <div class="form-group">
+                            {{Form::label('Razlog prijenosa Bonusa:')}}
+                            {{Form::text('BrojPoliceBonusRazlog', null, array('class' => 'form-control', 'placeholder' => 'Razlog za prijenos'))}}
+                        </div>
+
+                        <div class="form-group">
+                            {{Form::label('Početak dugoročnog osiguranja:')}}
+                            {{Form::date('DatumPocetkaDugorocnogOsiguranja', null, array('class' => 'form-control', 'placeholder' => ''))}}
+
+                        </div>
+                        <div class="form-group">
+                            {{Form::label('Istek dugoročnog osiguranja:')}}
+                            {{Form::date('DatumIstekaDugorocnogOsiguranja', null, array('class' => 'form-control', 'placeholder' => ''))}}
+
+                        </div>
+
+                         <div class="form-group">
+                            {{Form::label('Osoba za obracun oznaka:')}}
+                            {{Form::text('OsobaZaObracunOznaka', null, array('class' => 'form-control', 'placeholder' => 'Osoba'))}}
+                        </div>
+                        
+                        {{/*TODO: Dodati ovisnost o izabranom tipu osobe// */}}                        
+                         <div class="form-group">
+                            {{Form::label('Vozač:')}}
+                            {{Form::select('VozacOznaka', DB::table('vozac')->orderBy('Oznaka')->pluck('Naziv','Oznaka'), array('class' => 'form-control', 'placeholder' => 'rezijski dodatak'))}}
+                        </div>
+
 
 
                        
