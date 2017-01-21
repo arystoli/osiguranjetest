@@ -50,8 +50,11 @@ class PolicaController extends Controller
     {
         //
         //return $request->ugovaratelj_id;
+        //$polica = Polica::firstOrCreate(['osiguranikOib' => $request->input('osiguranikOib')]);
+        //$request->session()->put('polica', $polica);
         $polica = Polica::firstOrCreate(['osiguranikOib' => $request->input('osiguranikOib')]);
-        $request->session()->put('polica', $polica);
+        $data = $request->all();
+        $polica->create($data);
 
         return redirect()->action('PolicaController@getPolicaKorakDrugi');
     }

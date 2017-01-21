@@ -91,6 +91,7 @@ function kopirajVrijednosti() {
 	document.getElementsByName("osiguranikSpolOznaka")[1].checked = document.getElementsByName("ugovarateljSpolOznaka")[1].checked;
 	document.getElementsByName("osiguranikUlica")[0].value = document.getElementsByName("ugovarateljUlica")[0].value;
 	document.getElementsByName("osiguranikKucniBroj")[0].value = document.getElementsByName("ugovarateljKucniBroj")[0].value;
+	document.getElementsByName("osiguranikPostanskiBroj")[0].value = document.getElementsByName("ugovarateljPostanskiBroj")[0].value;
 	document.getElementsByName("osiguranikNaselje")[0].value = document.getElementsByName("ugovarateljNaselje")[0].value;
 	document.getElementsByName("osiguranikTelefon")[0].value = document.getElementsByName("ugovarateljTelefon")[0].value;
 	document.getElementsByName("osiguranikEmail")[0].value = document.getElementsByName("ugovarateljEmail")[0].value;

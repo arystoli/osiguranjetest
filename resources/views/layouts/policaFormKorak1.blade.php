@@ -280,11 +280,64 @@
                             {{Form::text('OsobaZaObracunOznaka', null, array('class' => 'form-control', 'placeholder' => 'Osoba'))}}
                         </div>
                         
-                        {{/*TODO: Dodati ovisnost o izabranom tipu osobe// */}}                        
-                         <div class="form-group">
+                                                
+                        <div class="form-group">
                             {{Form::label('Vozač:')}}
                             {{Form::select('VozacOznaka', DB::table('vozac')->orderBy('Oznaka')->pluck('Naziv','Oznaka'), array('class' => 'form-control', 'placeholder' => 'rezijski dodatak'))}}
                         </div>
+                        {!//TODO: Dodati ovisnost o izabranom tipu osobe//!}
+
+                        <div class="form-group">
+                            {{Form::label('Vozač:')}}
+                            {{Form::select('KilometaraGodisnjeOznaka', DB::table('kilometaragodisnje')->orderBy('Oznaka')->pluck('Naziv','Oznaka'), array('class' => 'form-control', 'placeholder' => 'Kilometara godišnje'))}}
+                        </div>
+
+                        <div class="form-group">
+                            {{Form::label('Datum izdavanja dozvole:')}}
+                            {{Form::date('DatumIzdavanjeDozvole', null, array('class' => 'form-control', 'placeholder' => 'Datum izdavanja dozvole vozača'))}}
+
+                        </div>
+
+                        <div class="form-group">
+                            {{Form::label('Kilometraža vozila:')}}
+                            {{Form::number('Kilometraza', null, array('class' => 'form-control', 'placeholder' => 'Trenutna kilometraža vozila'))}}
+
+                        </div>
+
+                        <div class="form-group">
+                            {{Form::label('Popust više vozila:')}}
+                            {{Form::select('PopustViseVozilaOznaka', DB::table('popustvisevozila')->orderBy('Oznaka')->pluck('Naziv','Oznaka'), array('class' => 'form-control', 'placeholder' => 'Popust više vozila'))}}
+                        </div>
+
+                        <div class="form-group">
+                            {{Form::label('Korporativni popust:')}}
+                            {{Form::select('PopustKorporativniOznaka ', DB::table('popustkorporativni')->orderBy('Oznaka')->pluck('Naziv','Oznaka'), array('class' => 'form-control', 'placeholder' => 'Popust korporativni'))}}
+                        </div>
+
+                        <div class="form-group">
+                            {{Form::label('Način plačanja:')}}
+                            {{Form::select('NacinPlacanjaOznaka ', DB::table('nacinplacanja')->orderBy('Oznaka')->pluck('Naziv','Oznaka'), array('class' => 'form-control', 'placeholder' => 'način plaćanja'))}}
+                        </div>
+
+                        <div class="form-group">
+                            {{Form::label('Sredstvo plačanja:')}}
+                            {{Form::select('SredstvaPlacanjaOznaka ', DB::table('sredstvoplacanja')->orderBy('Oznaka')->pluck('Naziv','Oznaka'), array('class' => 'form-control', 'placeholder' => 'Sredstvo plaćanja'))}}
+                        </div>
+                         
+                        <div class="form-group">
+                            {{Form::label('Banka/kartičar:')}}
+                            {{Form::select('BankaKarticarOznaka ', DB::table('bankakarticar')->orderBy('Oznaka')->pluck('Naziv','Oznaka'), array('class' => 'form-control', 'placeholder' => 'Banka plaćanja'))}}
+                        </div>
+
+                        <div class="form-group">
+                            {{Form::label('Broj računa:')}}
+                            {{Form::text('BrojRacuna', null, array('class' => 'form-control', 'placeholder' => 'Broj računa'))}}
+                        </div>
+                         
+                        
+                        
+
+                        
 
 
 
