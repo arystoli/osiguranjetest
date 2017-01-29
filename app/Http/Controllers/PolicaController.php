@@ -10,6 +10,12 @@ use App\Http\Controllers\PolicaController;
 
 use App\Models\Polica;
 
+use GuzzleHttp\Client as GuzzleHttpClient;
+
+use GuzzleHttp\Exception\RequestException;
+
+use App\MyLib\EurohercAPI as EHAPI;
+
 class PolicaController extends Controller
 {
     /**
@@ -19,7 +25,7 @@ class PolicaController extends Controller
      */
     public function index()
     {
-        return view('polica.home');
+        return view('polica.basic');
     }
 
     /**
@@ -51,12 +57,43 @@ class PolicaController extends Controller
         //
         //return $request->ugovaratelj_id;
         //$polica = Polica::firstOrCreate(['osiguranikOib' => $request->input('osiguranikOib')]);
-        //$request->session()->put('polica', $polica);
-        $polica = Polica::firstOrCreate(['osiguranikOib' => $request->input('osiguranikOib')]);
+        
+        $polica = Polica::firstOrCreate(['RegistarskaOznaka' => $request->input('RegistarskaOznaka')]);
         $data = $request->all();
         $polica->create($data);
 
-        return redirect()->action('PolicaController@getPolicaKorakDrugi');
+        var_dump($data);
+        unset($data['_token']);
+        $data += array('Ugovaratelj' => array());
+        $data += array('Osiguranik' => array());
+        var_dump($data);
+        $post_data = json_encode($data);
+
+        $eh = new EHAPI();
+        $eh->postPolica($post_data);
+
+        
+        //echo json_encode($data); //RADI OVO
+        //echo $polica->RegistarskaOznaka;
+        //echo "Test";
+
+        /*echo $polica->makeHidden(['osiguranikId','osiguranikNaziv','osiguranikIme','osiguranikPrezime','osiguranikOib',
+            'osiguranikDatumRodjenja','osiguranikSpolOznaka','osiguranikUlica', 'osiguranikKucniBroj'])->toJson();*/
+
+
+        //$request->session()->put('polica', $polica);
+
+        //TODO :::::::::::::::::::::::::: OVO OVO TODO
+
+
+                    //return redirect()->action('PolicaController@getPolicaKorakDrugi');
+
+        //TODO :::::::::::::::::::::::::: OVO OVO TODO
+    }
+
+    public function sendPostData(Request $request)
+    {
+        return $request->session()->all();
     }
 
     /**

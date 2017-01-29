@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 
 use Carbon\Carbon;
 
+use App\Models\Polica;
+
 use App\MyLib\EurohercAPI as EHAPI;
 
 class EurohercAPI {
@@ -19,6 +21,53 @@ class EurohercAPI {
 	{
 
 		echo "Radi klasa";
+	}
+
+	public function postPolica($data)
+	{
+
+		try {
+				
+				$eh = new EHAPI();
+
+				$eh->getSession();
+
+				$session_key=DB::table('session')
+				->select('session_key')
+				->where('Naziv', 'Euroherc')->get();
+
+				//TESTNI POST
+			/*$headers = ['base_uri' => 'https://jsonplaceholder.typicode.com/', 'verify' => false, 'API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D', 'SessionID' => $session_key, 'content-type' => 'application/json'];
+			$body = $data;
+			$request = ('POST', 'https://jsonplaceholder.typicode.com/posts', $headers, $body);
+			$response = $request->send();*/
+
+
+
+			/*$headers = ['base_uri' => 'https://prodaja.euroherc.hr/ws.ao/', 'verify' => false, 'API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D', 'SessionID' => $session_key, 'content-type' => 'application/json'];
+			$body = $data;
+			$request = new Request('POST', 'https://prodaja.euroherc.hr/ws.ao/api/v1/polica', $headers, $body);
+			$response = $request->send();*/
+
+			
+
+
+			// STARI POST 
+			$client = new GuzzleHttpClient(['base_uri' => 'http://requestb.in/vaakffva', 'verify' => false]);
+			//$client->setDefaultOption('verify', false);
+			$apiRequest = $client->request('POST', 'http://requestb.in/vaakffva', ['headers' => ['API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D', 'content-type' => 'application/json', 'SessionID' => $session_key], 'body' => $data]);
+
+			//echo "Test";
+			$content = json_decode($apiRequest->getBody()->getContents());
+			return $content;
+			//var_dump($content);
+			
+		} catch (RequestException $re) {
+          //For handling exception
+			echo "Exception kod dohvata podataka (Sifarnika)";
+			echo $re;
+		}
+	
 	}
 	
 	public function getSession()

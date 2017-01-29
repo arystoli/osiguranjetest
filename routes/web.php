@@ -45,6 +45,13 @@ Route::post('polica', 'PolicaController@store');
 
 Route::get('getPolicaKorakDrugi', 'PolicaController@getPolicaKorakDrugi');
 
+Route::get('sendPostData', 'PolicaController@sendPostData');
+
+Route::get('sendPostData', array('as' => 'sendPostData', function()
+{
+   
+}));
+
 //Testni dio za komunikaciju sa eurohercom/////
 Route::get('eurohercsession', ['as' => 'eurohercsession', 'uses' => 'EuroHercController@getSession']);
 // Kraj testnog djela Euroherc/////////////////
