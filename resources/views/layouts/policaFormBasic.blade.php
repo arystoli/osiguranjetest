@@ -118,12 +118,9 @@
                         
                          <div class="form-group">
                             {{Form::label('Proba:')}}
-                            {{Form::label('DA')}}
-                            {{Form::radio('Proba', "true")}}
-                            {{Form::label('NE')}}
-                            {{Form::radio('Proba', "false")}}
-
                             
+
+                            {{Form::number('Proba', null, array('class' => 'form-control', 'placeholder' => 'Probne tablice'))}}
 
                         </div>
                         <div class="form-group">
