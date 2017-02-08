@@ -55,7 +55,7 @@ class EurohercAPI {
 			// STARI POST 
 			$client = new GuzzleHttpClient(['base_uri' => 'https://prodaja.euroherc.hr/ws.ao', 'verify' => false]);
 			//$client->setDefaultOption('verify', false);
-			$apiRequest = $client->request('POST', 'https://prodaja.euroherc.hr/ws.ao', ['headers' => ['API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D', 'content-type' => 'application/json', 'SessionID' => $session_key], 'body' => $data]);
+			$apiRequest = $client->request('POST', 'https://prodaja.euroherc.hr/ws.ao/api/v1/polica', ['headers' => ['API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D', 'content-type' => 'application/json', 'SessionID' => $session_key], 'body' => $data]);
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
