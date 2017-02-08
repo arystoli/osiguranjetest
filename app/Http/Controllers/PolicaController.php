@@ -64,8 +64,9 @@ class PolicaController extends Controller
 
         var_dump($data);
         unset($data['_token']);
-        $data += array('Ugovaratelj' => array());
-        $data += array('Osiguranik' => array());
+        unset($data['BrojRanijePolica']);
+        //$data += array('Ugovaratelj' => array());
+        //$data += array('Osiguranik' => array());
         $data['Proba'] = false;
         var_dump($data);
         $post_data = json_encode($data);

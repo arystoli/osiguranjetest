@@ -118,7 +118,12 @@
                         
                          <div class="form-group">
                             {{Form::label('Proba:')}}
-                            {{Form::number('Proba', null, array('class' => 'form-control', 'placeholder' => 'Probne tablice'))}}
+                            {{Form::label('DA')}}
+                            {{Form::radio('Proba', "true")}}
+                            {{Form::label('NE')}}
+                            {{Form::radio('Proba', "false")}}
+
+                            
 
                         </div>
                         <div class="form-group">
