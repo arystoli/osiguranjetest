@@ -66,8 +66,10 @@ class PolicaController extends Controller
         unset($data['_token']);
         $data += array('Ugovaratelj' => array());
         $data += array('Osiguranik' => array());
+        $data['Proba'] = false;
         var_dump($data);
         $post_data = json_encode($data);
+
 
         $eh = new EHAPI();
         $eh->postPolica($post_data);
