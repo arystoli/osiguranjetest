@@ -45,6 +45,8 @@ Route::post('polica', 'PolicaController@store');
 
 Route::get('getPolicaKorakDrugi', 'PolicaController@getPolicaKorakDrugi');
 
+Route::get('getPolicaOnePage', array('as' => 'getPolicaOnePage', 'uses' => 'PolicaController@getPolicaOnePage'));
+
 Route::get('sendPostData', 'PolicaController@sendPostData');
 
 Route::get('sendPostData', array('as' => 'sendPostData', function()

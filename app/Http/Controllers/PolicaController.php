@@ -45,6 +45,13 @@ class PolicaController extends Controller
         
     }
 
+     public function getPolicaOnePage(Request $request)
+    {
+        return view('polica.onePage', ['polica' => $request->session()->get('polica')]);
+        
+    }
+
+
    
     /**
      * Store a newly created resource in storage.
@@ -62,19 +69,20 @@ class PolicaController extends Controller
         $data = $request->all();
         $polica->create($data);
 
-        var_dump($data);
+        //var_dump($data);
         unset($data['_token']);
         unset($data['BrojRanijePolica']);
-        //$data += array('Ugovaratelj' => array());
-        //$data += array('Osiguranik' => array());
+        $data['Ugovaratelj'] = (object) array();
+        $data['Osiguranik'] = (object) array();
         $data['Proba'] = false;
-        var_dump($data);
+        //var_dump($data);
+        $post_data = $data;
         $post_data = json_encode($data);
-
-
+        //var_dump($post_data);    
         $eh = new EHAPI();
-        $eh->postPolica($post_data);
+        $policaData = $eh->postPolica($post_data);
 
+        return view('polica.cijene', ['polica' => $policaData]);
         
         //echo json_encode($data); //RADI OVO
         //echo $polica->RegistarskaOznaka;

@@ -30,11 +30,13 @@ class EurohercAPI {
 				
 				$eh = new EHAPI();
 
-				$eh->getSession();
+				$session_key = $eh->getSession();
 
-				$session_key=DB::table('session')
+				/*$session_key=DB::table('session')
 				->select('session_key')
-				->where('Naziv', 'Euroherc')->get();
+				->where('Naziv', 'Euroherc')->get();*/
+
+				//echo "Test ispis session key-a" + $session_key;
 
 				//TESTNI POST
 			/*$headers = ['base_uri' => 'https://jsonplaceholder.typicode.com/', 'verify' => false, 'API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D', 'SessionID' => $session_key, 'content-type' => 'application/json'];
@@ -53,14 +55,16 @@ class EurohercAPI {
 
 
 			// STARI POST 
-			$client = new GuzzleHttpClient(['base_uri' => 'https://prodaja.euroherc.hr/ws.ao', 'verify' => false]);
+			$client = new GuzzleHttpClient(['base_uri' => 'https://prodaja.euroherc.hr/ws.ao/', 'verify' => false]);
 			//$client->setDefaultOption('verify', false);
 			$apiRequest = $client->request('POST', 'https://prodaja.euroherc.hr/ws.ao/api/v1/polica', ['headers' => ['API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D', 'content-type' => 'application/json', 'SessionID' => $session_key], 'body' => $data]);
 
 			//echo "Test";
 			$content = json_decode($apiRequest->getBody()->getContents());
-			return $content;
+			
+			//echo "vardump";
 			//var_dump($content);
+			return $content;
 			
 		} catch (RequestException $re) {
           //For handling exception
@@ -69,8 +73,32 @@ class EurohercAPI {
 		}
 	
 	}
-	
+
 	public function getSession()
+	{
+		try {
+
+			$client = new GuzzleHttpClient(['base_uri' => 'https://prodaja.euroherc.hr/ws.ao', 'verify' => false]);
+			//$client->setDefaultOption('verify', false);
+			$apiRequest = $client->request('GET', 'https://prodaja.euroherc.hr/ws.ao/api/v1/session', ['headers' => ['API-Key' => 'B4274F11-EE28-48BF-BCB9-925275CD244D']]);
+
+			//echo "Test";
+			$content = json_decode($apiRequest->getBody()->getContents());
+				DB::table('session')
+				->where('Naziv', 'Euroherc')
+				->update(['session_key' => $content->Data->SessionId]);
+				
+		} catch (RequestException $re) {
+          //For handling exception
+			echo "Test exception";
+			echo $re;
+		}
+		return $content->Data->SessionId;
+	}
+
+	///TESTNA SESSION GET FUNKCIJA
+	
+	public function getSessionOld()
 	{
 		try {
 
@@ -110,7 +138,10 @@ class EurohercAPI {
 			echo $re;
 		}
 	}
+
 	///TESTNA SESSION GET FUNKCIJA
+
+
 	public function getSifarniciTest()
 	{
 		try {
