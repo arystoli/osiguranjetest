@@ -315,6 +315,7 @@ class ComposerStaticInit8d8c388eec60730658111caeb6ef588f
     );
 
     public static $classMap = array (
+        'AddFieldsUser' => __DIR__ . '/../..' . '/database/migrations/2017_03_10_052729_add_fields_user.php',
         'AddTablesToPolicas' => __DIR__ . '/../..' . '/database/migrations/2016_11_07_015606_add_tables_to_policas.php',
         'CreateBankaKarticarTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_15_013457_create_BankaKarticar_table.php',
         'CreateBonusTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_15_013239_create_Bonus_table.php',
@@ -326,7 +327,7 @@ class ComposerStaticInit8d8c388eec60730658111caeb6ef588f
         'CreateOsobaZaObracunTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_15_013440_create_OsobaZaObracun_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePolicaTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_07_014301_create_polica_table.php',
-        'CreatePolicasTableV2' => __DIR__ . '/../..' . '/database/migrations/2017_01_02_035757_create_policas_table_v2.0.php',
+        'CreatePolicasTableV2' => __DIR__ . '/../..' . '/database/migrations/2017_01_02_035757_create_policas_table_v2.php',
         'CreatePopustKorporativniTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_15_013527_create_PopustKorporativni_table.php',
         'CreatePopustViseVozilaTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_15_013536_create_PopustViseVozila_table.php',
         'CreatePosebanPopustTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_15_013545_create_PosebanPopust_table.php',

@@ -115,17 +115,11 @@
                             {{Form::date('DatumPocetkaOsiguranja', null, array('class' => 'form-control', 'placeholder' => ''))}}
 
                         </div>
-                        
-                         <div class="form-group">
-                            {{Form::label('Proba:')}}
-                            
-
-                            {{Form::number('Proba', null, array('class' => 'form-control', 'placeholder' => 'Probne tablice'))}}
 
                         </div>
                         <div class="form-group">
-                        <button href="{{ route('sendPostData') }}" type="button" class="btn btn-default">Test</button>
-                        <button type="submit">Dalje</button>
+                        
+                        <center><button type="submit">Dalje</button></center></center>
                                 {{Form::close()}}
                         </div>
                 </div>

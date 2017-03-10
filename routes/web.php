@@ -39,13 +39,13 @@ Route::get('test', function () {
     return view('pages.test');
 });
 
-Route::get('polica', array('as' => 'polica', 'uses' => 'PolicaController@index'))->middleware('auth');
+Route::get('polica', array('as' => 'polica', 'uses' => 'PolicaController@index'))->middleware('Active');
 //Route::post('polica', array('as' => 'polica', 'uses' => 'PolicaController@store'))->middleware('auth');
-Route::post('polica', 'PolicaController@store');
+Route::post('polica', 'PolicaController@store')->middleware('Active');
 
-Route::get('getPolicaKorakDrugi', 'PolicaController@getPolicaKorakDrugi');
+Route::get('getPolicaKorakDrugi', 'PolicaController@getPolicaKorakDrugi')->middleware('Active');
 
-Route::get('getPolicaOnePage', array('as' => 'getPolicaOnePage', 'uses' => 'PolicaController@getPolicaOnePage'));
+Route::get('getPolicaOnePage', array('as' => 'getPolicaOnePage', 'uses' => 'PolicaController@getPolicaOnePage'))->middleware('Active');
 
 Route::get('sendPostData', 'PolicaController@sendPostData');
 

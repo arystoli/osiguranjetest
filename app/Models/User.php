@@ -20,7 +20,9 @@ class User extends Model
         'remember_token'
     ];
 
-    protected $guarded = [];
+    protected $guarded = [
+    'active'
+    ];
 
-        
+           
 }
