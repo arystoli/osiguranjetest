@@ -203,6 +203,8 @@
 
                         </div>
 
+                        
+
                         <div class="form-group">
                             {{Form::label('Email:')}}
                             {{Form::text('osiguranikEmail', null, array('class' => 'form-control', 'placeholder' => 'Email osiguranika'))}}
@@ -510,6 +512,9 @@
                             {{Form::number('Proba', null, array('class' => 'form-control', 'placeholder' => 'Probne tablice'))}}
 
                         </div>
+
+                        {{ Form::hidden('hidden_source', 'full_one_page') }}
+
                         <div class="form-group">
                         <button type="submit">Dalje</button>
                                 {{Form::close()}}

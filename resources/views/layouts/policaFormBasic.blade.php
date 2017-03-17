@@ -41,19 +41,19 @@
 
 
                         <div class="form-group">
-                            {{Form::label('Snaga:')}}
+                            {{Form::label('Snaga (kW):')}}
                             {{Form::number('Snaga', null, array('class' => 'form-control', 'placeholder' => 'snaga vozila'))}}
 
                         </div>
 
                         <div class="form-group">
-                            {{Form::label('Zapremina:')}}
+                            {{Form::label('Zapremina (ccm):')}}
                             {{Form::number('Zapremina', null, array('class' => 'form-control', 'placeholder' => 'zapremina vozila'))}}
 
                         </div>
 
                          <div class="form-group">
-                            {{Form::label('Nosivost:')}}
+                            {{Form::label('Nosivost (kg)):')}}
                             {{Form::number('Nosivost', null, array('class' => 'form-control', 'placeholder' => 'nosivost vozila'))}}
 
                         </div>
@@ -99,7 +99,7 @@
 
                         <div class= "form-group">
                             {{Form::label('Tarifni popust:')}}
-                            <select id="TarifniPopustOznaka" class="form-control" name="TarifniPopustOznaka"><option value="P1">za tjelesno oštećenje 15%</option><option value="P2">za tjelesno oštećenje 20%</option><option value="P5">za starodobna vozila 50%</option>
+                            <select id="TarifniPopustOznaka" class="form-control" name="TarifniPopustOznaka"><option value="0">Nema</option><option value="P1">za tjelesno oštećenje 15%</option><option value="P2">za tjelesno oštećenje 20%</option><option value="P5">za starodobna vozila 50%</option>
                             </select>
 
                         </div>                    
@@ -115,6 +115,8 @@
                             {{Form::date('DatumPocetkaOsiguranja', null, array('class' => 'form-control', 'placeholder' => ''))}}
 
                         </div>
+
+                        {{ Form::hidden('hidden_source', 'basic') }}
 
                         </div>
                         <div class="form-group">
