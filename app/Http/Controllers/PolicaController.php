@@ -100,12 +100,7 @@ class PolicaController extends Controller
 
             //$request->session()->put('polica', $polica);
 
-            //TODO :::::::::::::::::::::::::: OVO OVO TODO
-
-
-                        //return redirect()->action('PolicaController@getPolicaKorakDrugi');
-
-            //TODO :::::::::::::::::::::::::: OVO OVO TODO
+            
             }
             else if($request->input('hidden_source')=='full_one_page'){
                 
