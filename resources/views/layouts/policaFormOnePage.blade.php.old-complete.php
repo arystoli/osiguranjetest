@@ -203,8 +203,6 @@
 
                         </div>
 
-                        
-
                         <div class="form-group">
                             {{Form::label('Email:')}}
                             {{Form::text('osiguranikEmail', null, array('class' => 'form-control', 'placeholder' => 'Email osiguranika'))}}
@@ -274,19 +272,19 @@
 
 
                         <div class="form-group">
-                            {{Form::label('Snaga (kW):')}}
+                            {{Form::label('Snaga:')}}
                             {{Form::number('Snaga', null, array('class' => 'form-control', 'placeholder' => 'snaga vozila'))}}
 
                         </div>
 
                         <div class="form-group">
-                            {{Form::label('Zapremina (ccm):')}}
+                            {{Form::label('Zapremina:')}}
                             {{Form::number('Zapremina', null, array('class' => 'form-control', 'placeholder' => 'zapremina vozila'))}}
 
                         </div>
 
                          <div class="form-group">
-                            {{Form::label('Nosivost (kg):')}}
+                            {{Form::label('Nosivost:')}}
                             {{Form::number('Nosivost', null, array('class' => 'form-control', 'placeholder' => 'nosivost vozila'))}}
 
                         </div>
@@ -299,7 +297,7 @@
 
                         <div class="form-group">
                             {{Form::label('Boja:')}}
-                            {{Form::text('Boja', null, array('class' => 'form-control', 'placeholder' => 'boja vozila'))}}
+                            {{Form::number('Boja', null, array('class' => 'form-control', 'placeholder' => 'boja vozila'))}}
 
                         </div>
                     </div>
@@ -430,6 +428,32 @@
                         </div>
 
                         <div class="form-group">
+                            {{Form::label('Temeljna premija:')}}
+                            {{Form::number('TemeljnaPremija', null, array('class' => 'form-control', 'placeholder' => 'premija'))}}
+
+                        </div>
+
+
+                        <div class="form-group">
+                            {{Form::label('Prikupljanje podataka:')}}
+                            {{Form::label('DA')}}
+                            {{Form::radio('PrikupljanjePodataka', '1')}}
+                            {{Form::label('NE')}}
+                            {{Form::radio('PrikupljanjePodataka', '0')}}
+
+                        </div>
+
+                        <div class="form-group">
+                            {{Form::label('Broj Police Bonus:')}}
+                            {{Form::text('BrojPoliceBonus', null, array('class' => 'form-control', 'placeholder' => 'Broj police za prijenos bonusa'))}}
+                        </div>
+
+                        <div class="form-group">
+                            {{Form::label('Razlog prijenosa Bonusa:')}}
+                            {{Form::text('BrojPoliceBonusRazlog', null, array('class' => 'form-control', 'placeholder' => 'Razlog za prijenos'))}}
+                        </div>
+
+                        <div class="form-group">
                             {{Form::label('Početak dugoročnog osiguranja:')}}
                             {{Form::date('DatumPocetkaDugorocnogOsiguranja', null, array('class' => 'form-control', 'placeholder' => ''))}}
 
@@ -512,9 +536,6 @@
                             {{Form::number('Proba', null, array('class' => 'form-control', 'placeholder' => 'Probne tablice'))}}
 
                         </div>
-
-                        {{ Form::hidden('hidden_source', 'full_one_page') }}
-
                         <div class="form-group">
                         <button type="submit">Dalje</button>
                                 {{Form::close()}}

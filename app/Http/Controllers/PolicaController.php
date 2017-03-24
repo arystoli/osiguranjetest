@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\Http\Controllers\PolicaController;
 
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Polica;
 
 use GuzzleHttp\Client as GuzzleHttpClient;
@@ -65,41 +67,108 @@ class PolicaController extends Controller
         //return $request->ugovaratelj_id;
         //$polica = Polica::firstOrCreate(['osiguranikOib' => $request->input('osiguranikOib')]);
         
-        $polica = Polica::firstOrCreate(['RegistarskaOznaka' => $request->input('RegistarskaOznaka')]);
-        $data = $request->all();
-        $polica->create($data);
+        //SLUČAJ KADA se sprema Basic forma i prosljeđuju se cijene
 
-        //var_dump($data);
-        unset($data['_token']);
-        unset($data['BrojRanijePolica']);
-        $data['Ugovaratelj'] = (object) array();
-        $data['Osiguranik'] = (object) array();
-        $data['Proba'] = false;
-        //var_dump($data);
-        $post_data = $data;
-        $post_data = json_encode($data);
-        //var_dump($post_data);    
-        $eh = new EHAPI();
-        $policaData = $eh->postPolica($post_data);
+        if($request->input('hidden_source')=='basic'){
+            
+            $polica = Polica::firstOrCreate(['RegistarskaOznaka' => $request->input('RegistarskaOznaka')]);
+            $data = $request->all();
+            $polica->create($data);
 
-        return view('polica.cijene', ['polica' => $policaData]);
-        
-        //echo json_encode($data); //RADI OVO
-        //echo $polica->RegistarskaOznaka;
-        //echo "Test";
+            //var_dump($data);
+            unset($data['_token']);
+            unset($data['BrojRanijePolica']);
+            $data['Ugovaratelj'] = (object) array();
+            $data['Osiguranik'] = (object) array();
+            $data['Proba'] = false;
+            //var_dump($data);
+            $post_data = $data;
+            $post_data = json_encode($data);
+            //var_dump($post_data);    
+            $eh = new EHAPI();
+            $policaData = $eh->postPolica($post_data);
 
-        /*echo $polica->makeHidden(['osiguranikId','osiguranikNaziv','osiguranikIme','osiguranikPrezime','osiguranikOib',
-            'osiguranikDatumRodjenja','osiguranikSpolOznaka','osiguranikUlica', 'osiguranikKucniBroj'])->toJson();*/
+            return view('polica.cijene', ['polica' => $policaData]);
+            
+            //echo json_encode($data); //RADI OVO
+            //echo $polica->RegistarskaOznaka;
+            //echo "Test";
+
+            /*echo $polica->makeHidden(['osiguranikId','osiguranikNaziv','osiguranikIme','osiguranikPrezime','osiguranikOib',
+                'osiguranikDatumRodjenja','osiguranikSpolOznaka','osiguranikUlica', 'osiguranikKucniBroj'])->toJson();*/
 
 
-        //$request->session()->put('polica', $polica);
+            //$request->session()->put('polica', $polica);
 
-        //TODO :::::::::::::::::::::::::: OVO OVO TODO
+            
+            }
+            else if($request->input('hidden_source')=='full_one_page'){
+                
+                //Temporary disabled
+                //$polica = Polica::firstOrCreate(['RegistarskaOznaka' => $request->input('RegistarskaOznaka')]);
+            $data = $request->all();
+            //$polica->create($data);
+
+            //var_dump($data);
+            unset($data['_token']);
+            unset($data['BrojRanijePolica']);
+
+            $ugovaratelj = (object) array();
+            $osiguranik = (object) array();
+
+            $ugovaratelj->{'VrstaOsobeID'} = $data['ugovarateljVrsta'];
+            $ugovaratelj->{'Naziv'} = $data['ugovarateljNaziv'];
+            $ugovaratelj->{'Ime'} = $data['ugovarateljIme'];
+            $ugovaratelj->{'Prezime'} = $data['ugovarateljPrezime'];
+            $ugovaratelj->{'OIB'} = $data['ugovarateljOib'];
+            $ugovaratelj->{'DatumRodjenja'} = $data['ugovarateljDatumRodjenja'];
+            $ugovaratelj->{'SpolOznaka'} = $data['ugovarateljSpolOznaka'];
+            $ugovaratelj->{'Ulica'} = $data['ugovarateljUlica'];
+            $ugovaratelj->{'KucniBroj'} = $data['ugovarateljKucniBroj'];
+            $ugovaratelj->{'PostanskiBroj'} = $data['ugovarateljPostanskiBroj'];
+            $ugovaratelj->{'Naselje'} = DB::table('naselje')->where('Oznaka', $data['ugovarateljNaseljeOznaka'])->value('Naziv');
+            $ugovaratelj->{'NaseljeOznaka'} = $data['ugovarateljNaseljeOznaka'];
+            $ugovaratelj->{'Telefon'} = $data['ugovarateljTelefon'];
+            $ugovaratelj->{'Email'} = $data['ugovarateljEmail'];
+
+            $osiguranik->{'VrstaOsobeID'} = $data['osiguranikVrsta'];
+            $osiguranik->{'Naziv'} = $data['osiguranikNaziv'];
+            $osiguranik->{'Ime'} = $data['osiguranikIme'];
+            $osiguranik->{'Prezime'} = $data['osiguranikPrezime'];
+            $osiguranik->{'OIB'} = $data['osiguranikOib'];
+            $osiguranik->{'DatumRodjenja'} = $data['osiguranikDatumRodjenja'];
+            $osiguranik->{'SpolOznaka'} = $data['osiguranikSpolOznaka'];
+            $osiguranik->{'Ulica'} = $data['osiguranikUlica'];
+            $osiguranik->{'KucniBroj'} = $data['osiguranikKucniBroj'];
+            $osiguranik->{'PostanskiBroj'} = $data['osiguranikPostanskiBroj'];
+            $osiguranik->{'Naselje'} = DB::table('naselje')->where('Oznaka', $data['osiguranikNaseljeOznaka'])->value('Naziv');
+            $osiguranik->{'NaseljeOznaka'} = $data['osiguranikNaseljeOznaka'];
+            $osiguranik->{'Telefon'} = $data['osiguranikTelefon'];
+            $osiguranik->{'Email'} = $data['osiguranikEmail'];
 
 
-                    //return redirect()->action('PolicaController@getPolicaKorakDrugi');
+            var_dump($ugovaratelj);
+            var_dump($osiguranik);
+            $data['Ugovaratelj'] = $ugovaratelj;
+            $data['Osiguranik'] = $osiguranik;
+            //Dodati podatke u osiuranika i ugovaratelja
+            
+            $data['Proba'] = false;
+            //var_dump($data);
+            $post_data = $data;
+            $post_data = json_encode($data);
+            
+            //var_dump($post_data);    
 
-        //TODO :::::::::::::::::::::::::: OVO OVO TODO
+            /**Ovaj dio treba enable nakon testiranja podataka
+            *$eh = new EHAPI();
+            $policaData = $eh->postPolica($post_data);
+            **/
+            
+
+            //return view('polica.cijene', ['polica' => $policaData]);
+            
+            }
     }
 
     public function sendPostData(Request $request)
