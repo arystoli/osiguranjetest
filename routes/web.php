@@ -27,9 +27,13 @@ Route::get('contact', function () {
     return view('pages.contact');
 });
 
+//Admin page routes
 Route::get('admin', function(){
 	return view('pages.admin');
 });
+
+Route::get('getAllPolicas', 'ListaPolicaController@index');
+
 
 Route::get('help', function () {
     return view('pages.help');
@@ -39,6 +43,7 @@ Route::get('test', function () {
     return view('pages.test');
 });
 
+//Police routes
 Route::get('polica', array('as' => 'polica', 'uses' => 'PolicaController@index'))->middleware('Active');
 //Route::post('polica', array('as' => 'polica', 'uses' => 'PolicaController@store'))->middleware('auth');
 Route::post('polica', 'PolicaController@store')->middleware('Active');
