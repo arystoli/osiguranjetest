@@ -9,15 +9,32 @@
                   
                     <a class="nav-link" href="{{ url('/home') }}"> Home  <span class="sr-only">(current)</span></a>
                   
-                  
+                    |
                     <a class="nav-link" href="{{ url('/getAllPolicas') }}"> Pregled polica </a>
-                 
+                    |
                   
                     <a class="nav-link" href="{{ url('/polica') }}"> Izrada Police </a>
                     
                   
     
                 </div>
+            </div>
+
+            <div class="panel panel-default">
+                
+                
+                  
+                    <a class="nav-link" href="{{ url('/home') }}"> Home  <span class="sr-only">(current)</span></a>
+                  
+                    |
+                    <a class="nav-link" href="{{ url('/getAllPolicas') }}"> Pregled polica </a>
+                    |
+                  
+                    <a class="nav-link" href="{{ url('/polica') }}"> Izrada Police </a>
+                    
+                  
+    
+                
             </div>
         </div>
     </div>

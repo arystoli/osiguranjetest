@@ -131,8 +131,10 @@
                         </div>
 
                         <div class="form-group">
-                            {{Form::label('Nadzornik Tehničkog pregleda:')}}
-                            {{Form::text('nadzornikTehnicki', null, array('class' => 'form-control', 'placeholder' => 'Nadzornik'))}}
+                            {{Form::label('Nadzornik Tehničkog pregleda:')}}                            
+                            {{Form::select('nadzorniktehnickog', DB::table('nadzorniktehnickog')->orderBy('ImePrezime')->pluck('ImePrezime', 'id'), array('class' => 'form-control', 'placeholder' => 'Nadzornik'))}}
+
+                            
 
                         </div>
 

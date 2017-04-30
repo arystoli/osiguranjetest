@@ -79,7 +79,7 @@ class PolicaController extends Controller
             // ================= Micanje nepotrebnih podataka iz $data objekta
             unset($data['interniDobavljac_id']);
             unset($data['eksterniDobavljac_id']);
-            unset($data['nadzornikTehnicki']);
+            unset($data['nadzorniktehnickog']);
             unset($data['_token']);
             unset($data['BrojRanijePolica']);
             $data['Ugovaratelj'] = (object) array();
