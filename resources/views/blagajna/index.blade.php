@@ -5,9 +5,8 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Izbornik</div>
-
-                @include('menus.mainMenu');
+                <div class="panel-heading">Blagajna</div>
+                @include('menus.menuBlagajna')
 
                 <div class="panel-body">
                     

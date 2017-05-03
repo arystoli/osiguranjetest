@@ -7,18 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class Client
  */
-class Blagajna extends Model
+class TransakcijaBlagajna extends Model
 {
-    protected $table = 'Blagajnas';
+    protected $table = 'transakcijablagajna';
 
     public $timestamps = true;
 
     protected $fillable = [
         'id',
-        'iznos',
-        'iznosPolica',
+        'iznos_naplacen',
+        'iznos_polica',
         'operater'
         'osiguranje'
+        'nacin_placanja'
     ];
 
     protected $guarded = [];

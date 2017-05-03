@@ -42,8 +42,19 @@ Route::get('help', function () {
 Route::get('test', function () {
     return view('pages.test');
 });
+/////////////////////////////////////////////////Blagajna routes
 
-//Police routes
+Route::get('blagajna', 'BlagajnaController@index')->middleware('Active');
+
+ROute::get('blagajna/list', 'BlagajnaController@showList')->middleware('Active');
+
+
+
+
+////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////Police routes
 Route::get('polica', array('as' => 'polica', 'uses' => 'PolicaController@index'))->middleware('Active');
 //Route::post('polica', array('as' => 'polica', 'uses' => 'PolicaController@store'))->middleware('auth');
 Route::post('polica', 'PolicaController@store')->middleware('Active');
