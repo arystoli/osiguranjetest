@@ -46,7 +46,12 @@ Route::get('test', function () {
 
 Route::get('blagajna', 'BlagajnaController@index')->middleware('Active');
 
-ROute::get('blagajna/list', 'BlagajnaController@showList')->middleware('Active');
+Route::get('blagajna/list', 'BlagajnaController@showList')->middleware('Active');
+
+Route::post('blagajna', 'BlagajnaController@store')->middleware('Active');
+
+Route::resource('blagajna','BlagajnaController');
+
 
 
 

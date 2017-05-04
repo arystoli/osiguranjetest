@@ -13,6 +13,7 @@ return array(
     'CreateBlagajnasTable' => $baseDir . '/database/migrations/2017_04_29_133944_create_blagajnas_table.php',
     'CreateBonusTable' => $baseDir . '/database/migrations/2016_12_15_013239_create_Bonus_table.php',
     'CreateFieldInterniDobavljac' => $baseDir . '/database/migrations/2017_04_17_150547_create_field_interniDobavljac.php',
+    'CreateInterninacinplacanjaTable' => $baseDir . '/database/migrations/2017_05_04_025242_create_interninacinplacanja_table.php',
     'CreateJobsTable' => $baseDir . '/database/migrations/2016_11_29_162936_create_jobs_table.php',
     'CreateKilometaraGodisnjeTable' => $baseDir . '/database/migrations/2016_12_15_013404_create_KilometaraGodisnje_table.php',
     'CreateMalusTable' => $baseDir . '/database/migrations/2016_12_15_013250_create_Malus_table.php',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class BlagajnaController extends Controller
 {
@@ -31,7 +32,9 @@ class BlagajnaController extends Controller
      */
     public function create()
     {
-        //
+        //Iskorisiti za otvaranje view-a za kreiranje nove transakcij
+        $user = Auth::user();
+        return view('blagajna.form', ['user' => $user]);
     }
 
     /**

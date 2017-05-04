@@ -322,6 +322,7 @@ class ComposerStaticInit8d8c388eec60730658111caeb6ef588f
         'CreateBlagajnasTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_29_133944_create_blagajnas_table.php',
         'CreateBonusTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_15_013239_create_Bonus_table.php',
         'CreateFieldInterniDobavljac' => __DIR__ . '/../..' . '/database/migrations/2017_04_17_150547_create_field_interniDobavljac.php',
+        'CreateInterninacinplacanjaTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_04_025242_create_interninacinplacanja_table.php',
         'CreateJobsTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_29_162936_create_jobs_table.php',
         'CreateKilometaraGodisnjeTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_15_013404_create_KilometaraGodisnje_table.php',
         'CreateMalusTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_15_013250_create_Malus_table.php',
