@@ -17,8 +17,8 @@ class TransakcijaBlagajna extends Model
         'id',
         'iznos_naplacen',
         'iznos_polica',
-        'operater'
-        'osiguranje'
+        'operater',
+        'osiguranje',
         'nacin_placanja'
     ];
 

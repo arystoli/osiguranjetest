@@ -19,7 +19,7 @@
                         <div class="form-group">
                             {{Form::label('Odabir blagajne (osiguranja)')}}
                             <br>
-                            {{Form::select('osiguranje', DB::table('blagajnas')->where('operater', $user->id)->orderBy('id')->pluck('osiguranje','id'), array('class' => 'form-control', 'placeholder' => 'Osiguranje'))}}
+                            {{Form::select('osiguranje', DB::table('blagajnas')->where('operater', $user->id)->orderBy('id')->pluck('osiguranje','osiguranje'), array('class' => 'form-control', 'placeholder' => 'Osiguranje'))}}
                         </div>
 
                         <div class="form-group">

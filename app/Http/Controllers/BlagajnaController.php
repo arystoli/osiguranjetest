@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use App\Models\TransakcijaBlagajna;
 
 class BlagajnaController extends Controller
 {
@@ -46,6 +47,18 @@ class BlagajnaController extends Controller
     public function store(Request $request)
     {
         //
+        $user = Auth::user();
+        $trblagajna = new TransakcijaBlagajna;
+        $trblagajna->osiguranje = $request->osiguranje;
+        $trblagajna->operater = $user->id;
+        $trblagajna->iznos_naplacen = $request->iznos_naplacen;
+        $trblagajna->iznos_polica = $request->iznos_polica;
+        $trblagajna->nacin_placanja = $request->nacin_placanja;
+
+        $trblagajna->save();
+
+        return view('blagajna.index');
+
     }
 
     /**
