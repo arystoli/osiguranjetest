@@ -117,22 +117,20 @@
                         </div>
 
                         <div class="form-group">
-                            {{Form::label('Interni dobavljač:')}}
-                            
-                            
-                            {{Form::select('interniDobavljac_id', DB::table('internidobavljac')->orderBy('naziv')->pluck('naziv', 'id'), array('class' => 'form-control', 'placeholder' => 'Interni Dobavljač'))}}
+                            {{Form::label('Interni dobavljač:')}}                            
+                            {{Form::select('interniDobavljac', DB::table('internidobavljac')->orderBy('naziv')->pluck('naziv', 'id'), array('class' => 'form-control', 'placeholder' => 'Interni Dobavljač'))}}
 
                         </div>
 
                         <div class="form-group">
                             {{Form::label('Eksterni dobavljač:')}}
-                            {{Form::text('eksterniDobavljac_id', null, array('class' => 'form-control', 'placeholder' => 'Eksterni dobavljač'))}}
+                            {{Form::text('eksterniDobavljac', null, array('class' => 'form-control', 'placeholder' => 'Eksterni dobavljač'))}}
 
                         </div>
 
                         <div class="form-group">
                             {{Form::label('Nadzornik Tehničkog pregleda:')}}                            
-                            {{Form::select('nadzorniktehnickog', DB::table('nadzorniktehnickog')->orderBy('ImePrezime')->pluck('ImePrezime', 'id'), array('class' => 'form-control', 'placeholder' => 'Nadzornik'))}}
+                            {{Form::select('nadzornikTehnicki', DB::table('nadzorniktehnicki')->orderBy('ImePrezime')->pluck('ImePrezime', 'id'), array('class' => 'form-control', 'placeholder' => 'Nadzornik'))}}
 
                             
 

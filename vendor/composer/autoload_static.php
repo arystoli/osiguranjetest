@@ -317,6 +317,7 @@ class ComposerStaticInit8d8c388eec60730658111caeb6ef588f
     public static $classMap = array (
         'AddFieldsToPolicasTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_17_131119_add_fields_to_policas_table.php',
         'AddFieldsUser' => __DIR__ . '/../..' . '/database/migrations/2017_03_10_052729_add_fields_user.php',
+        'AddOperaterToPolicas' => __DIR__ . '/../..' . '/database/migrations/2017_05_10_175953_add_operater_to_policas.php',
         'AddTablesToPolicas' => __DIR__ . '/../..' . '/database/migrations/2016_11_07_015606_add_tables_to_policas.php',
         'CreateBankaKarticarTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_15_013457_create_BankaKarticar_table.php',
         'CreateBlagajnasTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_29_133944_create_blagajnas_table.php',

@@ -21,6 +21,8 @@
             </div>
 
             <div class="panel panel-default">
+
+                    <div class="panel-heading">
                 
                 
                   
@@ -31,10 +33,24 @@
                     |
                   
                     <a class="nav-link" href="{{ url('/polica') }}"> Izrada Police </a>
-                    
-                  
-    
+
+                    </div>
+            </div>
+
+            <div class="panel panel-default">
+
+                    <div class="panel-heading">
                 
+                  
+                    
+                    <form action="{{ url('getAllPolicas') }}" method="get" >
+                    {{Form::label('Sortiranje po Operateru:')}}
+                    {{Form::select('operater', DB::table('users')->orderBy('id')->pluck('name','id'), array('class' => 'form-control', 'placeholder' => 'Osiguranje'))}}
+                    {{ Form::hidden('hidden_source', 'operater') }}
+                    <button type="submit" class="btn btn-primary btn-xs">Sortiraj</button>
+                    {{Form::close()}}
+
+                    </div>
             </div>
         </div>
     </div>
