@@ -116,6 +116,27 @@
 
                         </div>
 
+                        <div class="form-group">
+                            {{Form::label('Interni dobavljač:')}}                            
+                            {{Form::select('interniDobavljac', DB::table('internidobavljac')->orderBy('naziv')->pluck('naziv', 'id'), array('class' => 'form-control', 'placeholder' => 'Interni Dobavljač'))}}
+
+                        </div>
+
+                        <div class="form-group">
+                            {{Form::label('Eksterni dobavljač:')}}
+                            {{Form::text('eksterniDobavljac', null, array('class' => 'form-control', 'placeholder' => 'Eksterni dobavljač'))}}
+
+                        </div>
+
+                        <div class="form-group">
+                            {{Form::label('Nadzornik Tehničkog pregleda:')}}                            
+                            {{Form::select('nadzornikTehnicki', DB::table('nadzorniktehnicki')->orderBy('ImePrezime')->pluck('ImePrezime', 'id'), array('class' => 'form-control', 'placeholder' => 'Nadzornik'))}}
+
+                            
+
+                        </div>
+
+
                         {{ Form::hidden('hidden_source', 'basic') }}
 
                         </div>

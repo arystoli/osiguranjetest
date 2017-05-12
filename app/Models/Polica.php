@@ -134,7 +134,12 @@ class Polica extends Model
         'BrojRacuna',
         'SerijskiBroj',
         'Naputak',
-        'TehnickaKarakteristika'
+        'TehnickaKarakteristika',
+        'nadzornikTehnicki',
+        'interniDobavljac',
+        'eksterniDobavljac',
+        'operater'
+
     ];
 
     protected $guarded = [];

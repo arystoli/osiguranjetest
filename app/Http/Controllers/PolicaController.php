@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+
 use App\Http\Requests;
 
 use App\Http\Controllers\PolicaController;
@@ -25,7 +27,7 @@ class PolicaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index()   
     {
         return view('polica.basic');
     }
@@ -73,14 +75,24 @@ class PolicaController extends Controller
             
             $polica = Polica::firstOrCreate(['RegistarskaOznaka' => $request->input('RegistarskaOznaka')]);
             $data = $request->all();
+            ////Dodavanje Operatera
+            $user = Auth::user();
+            $data['operater'] = $user->id;
             $polica->create($data);
 
             //var_dump($data);
+            // ================= Micanje nepotrebnih podataka iz $data objekta
+            unset($data['interniDobavljac']);
+            unset($data['eksterniDobavljac']);
+            unset($data['nadzornikTehnicki']);
             unset($data['_token']);
             unset($data['BrojRanijePolica']);
             $data['Ugovaratelj'] = (object) array();
             $data['Osiguranik'] = (object) array();
             $data['Proba'] = false;
+            
+            
+
             //var_dump($data);
             $post_data = $data;
             $post_data = json_encode($data);
