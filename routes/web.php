@@ -54,8 +54,6 @@ Route::resource('blagajna','BlagajnaController');
 
 
 
-
-
 ////////////////////////////////////////////////////////////////
 
 
@@ -74,6 +72,14 @@ Route::get('sendPostData', array('as' => 'sendPostData', function()
 {
    
 }));
+///////////////////////////////////////////////
+////////////////////////////////////////////////////Administracija itd..
+Route::get('interniNacinPlacanja/{id}/delete', ['as' => 'interni.delete', 'uses' => 'InterniNacinPlacanjaController@delete']);
+Route::resource('interniNacinPlacanja','InterniNacinPlacanjaController');
+
+
+
+////////////////////////////////
 
 //Testni dio za komunikaciju sa eurohercom/////
 Route::get('eurohercsession', ['as' => 'eurohercsession', 'uses' => 'EuroHercController@getSession']);
