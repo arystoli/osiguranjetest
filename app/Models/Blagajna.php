@@ -17,7 +17,7 @@ class Blagajna extends Model
         'id',
         'iznos',
         'iznosPolica',
-        'operater'
+        'operater',
         'osiguranje'
     ];
 

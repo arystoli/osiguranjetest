@@ -48,7 +48,11 @@ Route::get('blagajna', 'BlagajnaController@index')->middleware('Active');
 
 Route::get('blagajna/list', 'BlagajnaController@showList')->middleware('Active');
 
+Route::get('blagajna/unosNovca', 'BlagajnaController@unosNovca')->middleware('Active');
+
 Route::post('blagajna', 'BlagajnaController@store')->middleware('Active');
+
+Route::post('blagajna/unosNovca' , 'BlagajnaController@unosNovcaStore')->middleware('Active');
 
 Route::resource('blagajna','BlagajnaController');
 

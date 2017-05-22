@@ -8,7 +8,11 @@
         <a class="nav-link" href="{{ url('/blagajna/list') }}"> Pregled Blagajne </a>
         |
       
-        <a class="nav-link" href="{{ url('/blagajna/create') }}"> Unos u Blagajnu </a>
+        <a class="nav-link" href="{{ url('/blagajna/create') }}"> Unos Zaduženja u Blagajnu </a>
+
+        |
+
+        <a class="nav-link" href="{{ url('/blagajna/unosNovca') }}"> Unos Novca u Blagajnu </a>
         
       
 

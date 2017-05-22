@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use App\Models\TransakcijaBlagajna;
+use App\Models\Blagajna;
+use App\MyLib\BlagajnaHelper as BH;
 
 class BlagajnaController extends Controller
 {
@@ -39,7 +41,8 @@ class BlagajnaController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * 
+     * Sprema novu transakciju i radi kalkulacije na blagajni
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -54,12 +57,47 @@ class BlagajnaController extends Controller
         $trblagajna->iznos_naplacen = $request->iznos_naplacen;
         $trblagajna->iznos_polica = $request->iznos_polica;
         $trblagajna->nacin_placanja = $request->nacin_placanja;
-
         $trblagajna->save();
 
-        return view('blagajna.index');
+        //Blagajna helper init and blagajna methods
+        $bh = new BH();
+        
+        $bh->odradiTransakciju($trblagajna);
 
+        $blagajnas = DB::table('blagajnas')->paginate(15);
+        return view('blagajna.showList', ['blagajnas' => $blagajnas]);
     }
+    /**
+        Prikazuje formu za unos novca
+    */
+    public function unosNovca(Request $request)
+    {
+        $user = Auth::user();
+       return view('blagajna.unosNovca', ['user' => $user]);
+
+    }   
+    /**
+        Sprema novac nakon forme
+    */
+    public function unosNovcaStore(Request $request)
+    {
+        //
+        $user = Auth::user();
+        $unos = Blagajna::where('osiguranje', $request->osiguranje)->get();
+        foreach ($unos as $posebnaBlagajna) {
+            $staroStanjeBl = $posebnaBlagajna->iznos;
+            $novoStanjeBl = $staroStanjeBl + $request->iznos;
+            $posebnaBlagajna->iznos = $novoStanjeBl;
+            $posebnaBlagajna->save();
+        }
+        
+        
+        
+
+        $blagajnas = DB::table('blagajnas')->paginate(15);
+        return view('blagajna.showList', ['blagajnas' => $blagajnas]);
+
+    }   
 
     /**
      * Display the specified resource.
