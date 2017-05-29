@@ -116,6 +116,8 @@ class PolicaController extends Controller
             }
             else if($request->input('hidden_source')=='full_one_page'){
                 
+
+                ///Enable nakon testiranja
                 //Temporary disabled
                 //$polica = Polica::firstOrCreate(['RegistarskaOznaka' => $request->input('RegistarskaOznaka')]);
             $data = $request->all();
