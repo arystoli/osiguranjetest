@@ -380,6 +380,15 @@
 
                         </div>
 
+                        <div class="form-group">
+
+                            {{Form::label('Zaštita Bonusa:')}}
+                            {{Form::label('Da')}}
+                            {{Form::radio('ZastitaBonusaOdabrano', 'true')}}
+                            {{Form::label('Ne')}}
+                            {{Form::radio('ZastitaBonusaOdabrano', 'false')}}
+                        </div>
+
                         <div class= "form-group">
                             {{Form::label('Malus:')}}
                             <select id="MalusOznaka" class="form-control" name="MalusOznaka"><option value="-40">Stupanj M, M2: -40%</option><option value="-20">Stupanj S, M1: -20%</option>

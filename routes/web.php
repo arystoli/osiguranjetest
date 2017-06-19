@@ -77,6 +77,27 @@ Route::get('sendPostData', array('as' => 'sendPostData', function()
    
 }));
 ///////////////////////////////////////////////
+
+
+//////////////////////////////////////////////Izvještaji
+
+Route::get('izvjestaji', function () {
+    return view('izvjestaji.index');
+});
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////
+
+
 ////////////////////////////////////////////////////Administracija itd..
 Route::get('interniNacinPlacanja/{id}/delete', ['as' => 'interni.delete', 'uses' => 'InterniNacinPlacanjaController@delete']);
 Route::resource('interniNacinPlacanja','InterniNacinPlacanjaController');

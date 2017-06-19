@@ -10,6 +10,10 @@
       
         <a class="nav-link" href="{{ url('/polica') }}"> Izrada Polica </a>
         |
+
+        <a class="nav-link" href="{{ url('/izvjestaji') }}"> Izvještaji </a>
+        |
+        
         <a class="nav-link" href="{{ url('/admin') }}"> Administracija </a>
         
       
