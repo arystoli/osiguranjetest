@@ -81,9 +81,24 @@ Route::get('sendPostData', array('as' => 'sendPostData', function()
 
 //////////////////////////////////////////////Izvještaji
 
-Route::get('izvjestaji', function () {
-    return view('izvjestaji.index');
+/*Route::get('izvjestaji/promet', function () {
+    return view('izvjestaji.promet');
+});*/
+
+Route::get('izvjestaji/police', function () {
+    return view('izvjestaji.police');
 });
+
+Route::get('izvjestaji/radnici', function () {
+    return view('izvjestaji.radnici');
+});
+
+Route::get('izvjestaji/promet', 'IzvjestajController@promet');
+
+
+
+
+
 
 
 

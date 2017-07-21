@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Izbornik</div>
 
-                @include('menus.mainMenu');
+                @include('menus.mainMenu')
 
                 <div class="panel-body">
                     

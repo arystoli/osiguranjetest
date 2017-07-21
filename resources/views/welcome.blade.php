@@ -79,6 +79,7 @@
                 </div>
 
                 <div class="links">
+                    <a href="{{ url('home') }}">Glavni Izbornik</a>
                     <a href="{{ Route('polica') }}">Izrada polica</a>
                     <a href="{{ url('admin') }}">Administracija</a>
                     <a href="{{ url('help') }}">Pomoć</a>
