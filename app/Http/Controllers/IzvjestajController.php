@@ -44,7 +44,7 @@ class IzvjestajController extends Controller
             }
             //////////////////////////////////////////////////
 
-             // Izvještaj po načinu plaćanja
+             // Izvještaj po načinu plaćanja interno
             $interniNaciniPlacanja = DB::table('interninacinplacanja')->get();
             
 
@@ -65,11 +65,36 @@ class IzvjestajController extends Controller
             }
             //////////////////////////////////////////////////
 
+ 			// Izvještaj po operateru
+            $users = DB::table('users')->get();
+            
+
+            foreach($users as $user)
+            {	
+            	$tempSum=0;
+            	foreach ($policas as $polica) {
+            		
+            		if($polica->operater == $user->id)
+            		{
+            			$tempSum = $tempSum + $polica->Premija;
+            		}
+            	}
+            	//U eksterni array se spremaju svi izračuni sume načina plaćanja
+            	//Dalje se prosljeđuje u view
+            	$userArray[$user->name] = $tempSum;
+            	
+            }
+            //////////////////////////////////////////////////
+
+
 
             // Handle multiple database requests to generate per day outputs:
             // po nacinu placanja, gotovina, kartica, itd, itd, teta1, teta2
             return view('izvjestaji.promet', ['policas' => $policas,
-        'externiNaciniPlacanja' => $enpArray, 'interniNacinPlacanja' => $inpArray, 'datumstr' => $testDate]);
+        'externiNaciniPlacanja' => $enpArray,
+        'interniNacinPlacanja' => $inpArray,
+        'users' => $userArray,
+        'datumstr' => $testDate]);
         }
         else{        
         $policas = DB::table('policas')->paginate(20);        

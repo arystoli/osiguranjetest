@@ -85,6 +85,20 @@
                 
                 <center>{{ $policas->links() }}</center>
                 </div>
+
+                <div class="row">
+                <div class="col-md-4 col-md-offset-1 panel panel-info">
+                <div class="panel-heading"><center><strong>Operater</strong></center></div>
+                <div class="panel-body">
+                @foreach ($users as $user => $value)
+                  <br>
+                  {{ $user }}: 
+                  <strong>{{ $value }}kn</strong>
+                @endforeach                
+                </div>                    
+                </div>
+                </div>
+
                 @endif
 
                 </div>
