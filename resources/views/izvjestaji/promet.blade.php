@@ -16,17 +16,23 @@
                   <li role="presentation"><a href="{{ url('/izvjestaji/radnici') }}">Radnici</a></li>
                 </ul>
 
-                <div>
-                <form action="{{ url('izvjestaji/promet') }}" method="get" >
+                <div class="row">
+                <div class="col-md-5"><form action="{{ url('izvjestaji/promet') }}" method="get" >
                     {{Form::label('Odabir datuma:')}}
                     {{Form::date('datum')}}
                     {{ Form::hidden('hidden_source', 'datum') }}
                     <button type="submit" class="btn btn-primary btn-xs">Odaberi</button>
                     {{Form::close()}}
+                    </form>
                 </div>
-                {{$datumstr}}
+                
+
+                <div class="col-md-6"><strong class="text-primary">Promet po datumu: {{$datumstr}}</strong></div>
+                </div>
+                
                 <div>
-                    <table>
+                    <!--  ##TESTNI DIO ZA PRINT DOBIVENIH POLICA PO DATUMU
+                    <table>                    
                     @foreach ($policas as $polica)
                         <tr>
                           <td>{{ $polica->id }}</td>
@@ -45,12 +51,43 @@
                         </tr>
                           
                         @endforeach
-                        </table>
+                        </table>     -->
                 </div>
-                <center>Paginacija</center>
+                <br>
+                @if(isset($externiNaciniPlacanja))
+                <div class="row">
+                <div class="col-md-4 col-md-offset-1 panel panel-info">
+                <div class="panel-heading"><center><strong>Externi načini plaćanja</strong></center></div>
+                <div class="panel-body">
+                @foreach ($externiNaciniPlacanja as $enp => $value)
+                  <br>
+                  {{ $enp }}: 
+                  <strong>{{ $value }}kn</strong>
+                @endforeach                
+                </div>                
+                
+                
+                </div>
+
+
+                <div class="col-md-4 col-md-offset-1 panel panel-info">
+                <div class="panel-heading"><cemter><strong>Interni načini plaćanja</div></strong></cemter>
+                <div class="panel-body">
+                @foreach ($interniNacinPlacanja as $inp => $value)
+                  <br>
+                  {{ $inp }}: 
+                  <strong>{{ $value }}kn</strong>
+                @endforeach
+                </div>
+                
+                
+                
+                
                 <center>{{ $policas->links() }}</center>
+                </div>
+                @endif
 
-
+                </div>
                                     
                 </div>
             </div>
