@@ -74,6 +74,7 @@ class PolicaController extends Controller
         if($request->input('hidden_source')=='basic'){
             
             $polica = Polica::firstOrCreate(['RegistarskaOznaka' => $request->input('RegistarskaOznaka')]);
+
             $data = $request->all();
             ////Dodavanje Operatera
             $user = Auth::user();
@@ -119,6 +120,7 @@ class PolicaController extends Controller
 
                 ///Enable nakon testiranja
                 //Temporary disabled
+                //Possibly deprecated and updateOrCreate used
                 //$polica = Polica::firstOrCreate(['RegistarskaOznaka' => $request->input('RegistarskaOznaka')]);
             $data = $request->all();
             //$polica->create($data);
@@ -129,7 +131,7 @@ class PolicaController extends Controller
 
             $ugovaratelj = (object) array();
             $osiguranik = (object) array();
-
+            //Priprema ugovaratelj podataka
             $ugovaratelj->{'VrstaOsobeID'} = $data['ugovarateljVrsta'];
             $ugovaratelj->{'Naziv'} = $data['ugovarateljNaziv'];
             $ugovaratelj->{'Ime'} = $data['ugovarateljIme'];
@@ -145,6 +147,7 @@ class PolicaController extends Controller
             $ugovaratelj->{'Telefon'} = $data['ugovarateljTelefon'];
             $ugovaratelj->{'Email'} = $data['ugovarateljEmail'];
 
+            //Priprema osiguranik podataka
             $osiguranik->{'VrstaOsobeID'} = $data['osiguranikVrsta'];
             $osiguranik->{'Naziv'} = $data['osiguranikNaziv'];
             $osiguranik->{'Ime'} = $data['osiguranikIme'];
@@ -160,7 +163,10 @@ class PolicaController extends Controller
             $osiguranik->{'Telefon'} = $data['osiguranikTelefon'];
             $osiguranik->{'Email'} = $data['osiguranikEmail'];
 
-
+            /////TEST//////
+            //Pokusati update ranijeg zapisa u bazi
+            Polica::updateOrCreate('RegistarskaOznaka' => $request->input('RegistarskaOznaka'), $data);
+            //
             var_dump($ugovaratelj);
             var_dump($osiguranik);
             $data['Ugovaratelj'] = $ugovaratelj;
