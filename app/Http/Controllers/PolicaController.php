@@ -162,7 +162,17 @@ class PolicaController extends Controller
             $osiguranik->{'NaseljeOznaka'} = $data['osiguranikNaseljeOznaka'];
             $osiguranik->{'Telefon'} = $data['osiguranikTelefon'];
             $osiguranik->{'Email'} = $data['osiguranikEmail'];
-
+	
+			///UNSET ALL NULL VALUES TO AVOID SQL ERRORS
+			echo "VARDUMP BEFORE UNSET";
+			var_dump($data);
+			foreach($data as $key => $value){
+				if($value == null){
+					unset($data[$key]);
+				}
+			}
+			echo "<hr>VARDUMP AFTER UNSET";
+			var_dump($data);
             /////TEST//////
             //Pokusati update ranijeg zapisa u bazi
             $output = Polica::updateOrCreate(['RegistarskaOznaka' => $request->input('RegistarskaOznaka')], $data);

@@ -332,7 +332,7 @@
 
                         <div class= "form-group">
                             {{Form::label('Tarifni popust:')}}
-                            <select id="TarifniPopustOznaka" class="form-control" name="TarifniPopustOznaka"><option value="P1">za tjelesno oštećenje 15%</option><option value="P2">za tjelesno oštećenje 20%</option><option value="P5">za starodobna vozila 50%</option>
+                            <select id="TarifniPopustOznaka" class="form-control" name="TarifniPopustOznaka"><option value="">Nema</option><option value="P1">za tjelesno oštećenje 15%</option><option value="P2">za tjelesno oštećenje 20%</option><option value="P5">za starodobna vozila 50%</option>
                             </select>
 
                         </div>
@@ -356,18 +356,8 @@
 
                         </div>
 
-                        <div class="form-group">
-                            {{Form::label('Istek osiguranja:')}}
-                            {{Form::date('DatumIstekaOsiguranja', null, array('class' => 'form-control', 'placeholder' => ''))}}
-
-                        </div>
-
-                        
-                        <div class="form-group">
-                            {{Form::label('Temeljna premija:')}}
-                            {{Form::number('TemeljnaPremija', null, array('class' => 'form-control', 'placeholder' => 'premija'))}}
-
-                        </div>
+                                                
+                       
 
                         <div class="form-group">
                             {{Form::label('Režijski dodatak:')}}
@@ -384,9 +374,9 @@
 
                             {{Form::label('Zaštita Bonusa:')}}
                             {{Form::label('Da')}}
-                            {{Form::radio('ZastitaBonusaOdabrano', 'true')}}
+                            {{Form::radio('ZastitaBonusaOdabrano', true)}}
                             {{Form::label('Ne')}}
-                            {{Form::radio('ZastitaBonusaOdabrano', 'false')}}
+                            {{Form::radio('ZastitaBonusaOdabrano', false)}}
                         </div>
 
                         <div class= "form-group">
@@ -403,7 +393,7 @@
 
                         <div class="form-group">
                             {{Form::label('Zona:')}}
-                            <select name="ZonaOznaka" onchange="zonaJS(this.value)"><option value="AN">Auto nezgoda</option><option value="ANE">Auto nezgoda exclusive</option><option value="ZONA">Zona</option><option value="ZONAE">Zona exclusive</option></select>
+                            <select name="ZonaOznaka" onchange="zonaJS(this.value)"><option value="">Nema</option><option value="AN">Auto nezgoda</option><option value="ANE">Auto nezgoda exclusive</option><option value="ZONA">Zona</option><option value="ZONAE">Zona exclusive</option></select>
                         </div>
 
                         <div class="form-group">
