@@ -165,6 +165,7 @@ class PolicaController extends Controller
 
             /////TEST//////
             //Pokusati update ranijeg zapisa u bazi
+            $output = Polica::updateOrCreate(['RegistarskaOznaka' => $request->input('RegistarskaOznaka')], $data);
             //
             var_dump($ugovaratelj);
             var_dump($osiguranik);
