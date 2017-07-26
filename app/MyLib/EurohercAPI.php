@@ -139,7 +139,7 @@ class EurohercAPI {
 		}
 	}
 
-	///TESTNA SESSION GET FUNKCIJA
+	///TESTNA SIFARNICI GET FUNKCIJA
 
 
 	public function getSifarniciTest()

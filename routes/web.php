@@ -190,6 +190,14 @@ Route::get('/baza/zonavrstaputnika',function()
  
 });
 
+Route::get('/baza/vozac',function()
+{
+    $vrsteOsobeOznaka = Input::get('Oznaka');
+    $vozac = DB::table('vozac')->where('VrstaOsobeOznaka','=',$vrsteOsobeOznaka)->pluck('Naziv', 'Oznaka');
+    return $vozac;
+ 
+});
+
 
 //////////////////////////////////////////////////////////////////
 

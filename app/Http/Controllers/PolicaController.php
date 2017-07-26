@@ -73,15 +73,16 @@ class PolicaController extends Controller
 
         if($request->input('hidden_source')=='basic'){
             
-            $polica = Polica::firstOrCreate(['RegistarskaOznaka' => $request->input('RegistarskaOznaka')]);
+            
 
             $data = $request->all();
             ////Dodavanje Operatera
             $user = Auth::user();
             $data['operater'] = $user->id;
-            $polica->create($data);
+			$polica = Polica::firstOrCreate(['RegistarskaOznaka' => $request->input('RegistarskaOznaka')], $data);
+            //$polica->fill($data);
 
-            //var_dump($data);
+            var_dump($data);
             // ================= Micanje nepotrebnih podataka iz $data objekta
             unset($data['interniDobavljac']);
             unset($data['eksterniDobavljac']);
@@ -190,10 +191,10 @@ class PolicaController extends Controller
             
             //var_dump($post_data);    
 
-            /**Ovaj dio treba enable nakon testiranja podataka
-            *$eh = new EHAPI();
-            $policaData = $eh->postPolica($post_data);
-            **/
+            //Ovaj dio treba enable nakon testiranja podataka
+            $eh = new EHAPI();
+            //$policaData = $eh->postPolica($post_data);
+            //var_dump($policaData);
             
 
             //return view('polica.cijene', ['polica' => $policaData]);

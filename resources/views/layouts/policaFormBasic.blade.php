@@ -57,16 +57,17 @@
                             {{Form::number('Nosivost', null, array('class' => 'form-control', 'placeholder' => 'nosivost vozila'))}}
 
                         </div>
-
-                        <div class="form-group">
-                            {{Form::label('Broj putnika:')}}
-                            {{Form::number('BrojPutnika', null, array('class' => 'form-control', 'placeholder' => 'broj putnika'))}}
-
-                        </div>
+                        
 
                         <div class="form-group">
                             {{Form::label('Boja:')}}
                             {{Form::text('Boja', null, array('class' => 'form-control', 'placeholder' => 'boja vozila'))}}
+
+                        </div>
+						
+						<div class="form-group">
+                            {{Form::label('Broj putnika:')}}
+                            {{Form::number('BrojPutnika', null, array('class' => 'form-control', 'placeholder' => 'broj putnika'))}}
 
                         </div>
                     </div>

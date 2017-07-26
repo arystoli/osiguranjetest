@@ -381,7 +381,7 @@
 
                         <div class= "form-group">
                             {{Form::label('Malus:')}}
-                            <select id="MalusOznaka" class="form-control" name="MalusOznaka"><option value="-40">Stupanj M, M2: -40%</option><option value="-20">Stupanj S, M1: -20%</option>
+                            <select id="MalusOznaka" class="form-control" name="MalusOznaka"><option value="">Nema</option><option value="-40">Stupanj M, M2: -40%</option><option value="-20">Stupanj S, M1: -20%</option>
                             </select>
 
                         </div>
@@ -449,10 +449,10 @@
                             {{Form::label('Vozač:')}}
                             {{Form::select('VozacOznaka', DB::table('vozac')->orderBy('Oznaka')->pluck('Naziv','Oznaka'), array('class' => 'form-control', 'placeholder' => 'rezijski dodatak'))}}
                         </div>
-                        {!//TODO: Dodati ovisnost o izabranom tipu osobe//!}
+                        <!--TODO: Dodati ovisnost o izabranom tipu osobe-->
 
                         <div class="form-group">
-                            {{Form::label('Vozač:')}}
+                            {{Form::label('Godišnja kilometraža:')}}
                             {{Form::select('KilometaraGodisnjeOznaka', DB::table('kilometaragodisnje')->orderBy('Oznaka')->pluck('Naziv','Oznaka'), array('class' => 'form-control', 'placeholder' => 'Kilometara godišnje'))}}
                         </div>
 
