@@ -1,5 +1,5 @@
 function tarifnagrupaJS(val) {
-	        $.get('http://localhost:8008/osiguranje/public/baza/tarifnapodgrupa?Oznaka=' + val, function(data) {
+	        $.get('http://localhost:8008/baza/tarifnapodgrupa?Oznaka=' + val, function(data) {
 		            console.log(data);
 		            $('#TarifnaPodGrupaOznaka').empty();
 
@@ -8,7 +8,7 @@ function tarifnagrupaJS(val) {
 		            });
 	        });
 
-			$.get('http://localhost:8008/osiguranje/public/baza/tarifnipopust?Oznaka=' + val, function(data) {
+			$.get('http://localhost:8008/baza/tarifnipopust?Oznaka=' + val, function(data) {
 		            console.log(data);
 		            $('#TarifniPopustOznaka').empty();
 
@@ -17,7 +17,7 @@ function tarifnagrupaJS(val) {
 		            });
 	        });
 
-			$.get('http://localhost:8008/osiguranje/public/baza/tarifnidoplatak?Oznaka=' + val, function(data) {
+			$.get('http://localhost:8008/baza/tarifnidoplatak?Oznaka=' + val, function(data) {
 		            console.log(data);
 		            $('#TarifniDoplatakOznaka').empty();
 
@@ -26,7 +26,7 @@ function tarifnagrupaJS(val) {
 		            });
 	        });
 
-			$.get('http://localhost:8008/osiguranje/public/baza/bonus?Oznaka=' + val, function(data) {
+			$.get('http://localhost:8008/baza/bonus?Oznaka=' + val, function(data) {
 		            console.log(data);
 		            $('#BonusOznaka').empty();
 
@@ -35,7 +35,7 @@ function tarifnagrupaJS(val) {
 		            });
 	        });
 
-			$.get('http://localhost:8008/osiguranje/public/baza/malus?Oznaka=' + val, function(data) {
+			$.get('http://localhost:8008/baza/malus?Oznaka=' + val, function(data) {
 		            console.log(data);
 		            $('#MalusOznaka').empty();
 
@@ -48,7 +48,7 @@ function tarifnagrupaJS(val) {
 
 function zonaJS(val) {
 
-		$.get('http://localhost:8008/osiguranje/public/baza/zonasvota?Oznaka=' + val, function(data) {
+		$.get('http://localhost:8008/baza/zonasvota?Oznaka=' + val, function(data) {
 		            console.log(data);
 		            $('#ZonaSvotaOznaka').empty();
 
@@ -57,7 +57,7 @@ function zonaJS(val) {
 		            });
 	        });
 
-		$.get('http://localhost:8008/osiguranje/public/baza/zonavrstavozaca?Oznaka=' + val, function(data) {
+		$.get('http://localhost:8008/baza/zonavrstavozaca?Oznaka=' + val, function(data) {
 		            console.log(data);
 		            $('#ZonaVrstaVozacaOznaka').empty();
 
@@ -66,7 +66,7 @@ function zonaJS(val) {
 		            });
 	        });
 
-		$.get('http://localhost:8008/osiguranje/public/baza/zonavrstaputnika?Oznaka=' + val, function(data) {
+		$.get('http://localhost:8008/baza/zonavrstaputnika?Oznaka=' + val, function(data) {
 		            console.log(data);
 		            $('#ZonaVrstaPutnikaOznaka').empty();
 
@@ -80,7 +80,7 @@ function zonaJS(val) {
 
 function vozacJS(val) {
 	
-	$.get('http://localhost:8008/osiguranje/public/baza/vozac?Oznaka=' + val, function(data) {
+	$.get('http://localhost:8008/baza/vozac?Oznaka=' + val, function(data) {
 		            console.log(data);
 		            $('#VozacOznaka').empty();
 

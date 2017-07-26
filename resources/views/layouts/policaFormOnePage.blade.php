@@ -25,7 +25,7 @@
 
                         <div class="form-group">
                             {{Form::label('Vrsta Osobe:')}}
-                            {{Form::select('ugovarateljVrsta', DB::table('vrstaosobe')->orderBy('ID')->pluck('Naziv','ID'), array('class' => 'form-control', 'placeholder' => 'vrsta ugovaratelja'))}}
+                            <select onchange="vozacJS(this.value)" name="ugovarateljVrsta"><option value="F">Fizička</option><option value="P">Pravna</option><option value="O">Obrt</option></select>
 
                         </div>
 
@@ -130,7 +130,8 @@
 
                         <div class="form-group">
                             {{Form::label('Vrsta Osobe:')}}
-                            {{Form::select('osiguranikVrsta', DB::table('vrstaosobe')->orderBy('ID')->pluck('Naziv','ID'), array('class' => 'form-control', 'placeholder' => 'vrsta osiguranika'))}}
+							<select onchange="vozacJS(this.value)" name="osiguranikVrsta"><option value="F">Fizička</option><option value="P">Pravna</option><option value="O">Obrt</option></select>
+                            <!--{{Form::select('osiguranikVrsta', DB::table('vrstaosobe')->orderBy('ID')->pluck('Naziv','ID'), array('class' => 'form-control', 'placeholder' => 'vrsta osiguranika'))}}-->
 
                         <div class="form-group">
                             {{Form::label('Naziv:')}}
@@ -447,7 +448,8 @@
                                                 
                         <div class="form-group">
                             {{Form::label('Vozač:')}}
-                            {{Form::select('VozacOznaka', DB::table('vozac')->orderBy('Oznaka')->pluck('Naziv','Oznaka'), array('class' => 'form-control', 'placeholder' => 'rezijski dodatak'))}}
+							<select id="VozacOznaka" name="VozacOznaka"><option value="VOZAC1">Pretežito osiguranik</option><option value="VOZAC2">Obitelj (2 ili više vozača)</option><option value="VOZAC3">Obitelj (2 ili više vozača od kojih je 1 mlađi od 24 g.)</option><option value="VOZAC4">Pretežito 1 vozač (od 0 h do 24 h)</option><option value="VOZAC5">Pretežito 1 vozač (pretežito od 7 h do 18 h)</option><option value="VOZAC6">Više vozača (od 0 h do 24 h)</option><option value="VOZAC7">Više vozača (pretežito od 7 h do 18 h)</option></select>
+                            
                         </div>
                         <!--TODO: Dodati ovisnost o izabranom tipu osobe-->
 
