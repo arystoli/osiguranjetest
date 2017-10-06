@@ -25,7 +25,7 @@ class ListaPolicaController extends Controller
         else{        
         $policas = DB::table('policas')->paginate(15);        
         }
-        return view('polica.listaPolica', ['policas' => $policas]);
+        return view('izvjestaji.police', ['policas' => $policas]);
     }
 
     public function store(Request $request)

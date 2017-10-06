@@ -30,9 +30,9 @@ Route::get('contact', function () {
 //Admin page routes
 Route::get('admin', function(){
 	return view('pages.admin');
-});
+})->middleware('Active');
 
-Route::get('getAllPolicas', 'ListaPolicaController@index');
+Route::get('getAllPolicas', 'ListaPolicaController@index')->middleware('Active');
 
 
 Route::get('help', function () {
@@ -70,12 +70,12 @@ Route::get('getPolicaKorakDrugi', 'PolicaController@getPolicaKorakDrugi')->middl
 
 Route::get('getPolicaOnePage', array('as' => 'getPolicaOnePage', 'uses' => 'PolicaController@getPolicaOnePage'))->middleware('Active');
 
-Route::get('sendPostData', 'PolicaController@sendPostData');
+Route::get('sendPostData', 'PolicaController@sendPostData')->middleware('Active');
 
 Route::get('sendPostData', array('as' => 'sendPostData', function()
 {
    
-}));
+}))->middleware('Active');
 ///////////////////////////////////////////////
 
 
@@ -85,15 +85,13 @@ Route::get('sendPostData', array('as' => 'sendPostData', function()
     return view('izvjestaji.promet');
 });*/
 
-Route::get('izvjestaji/police', function () {
-    return view('izvjestaji.police');
-});
+Route::get('izvjestaji/police', 'ListaPolicaController@index')->middleware('Active');
 
 Route::get('izvjestaji/radnici', function () {
     return view('izvjestaji.radnici');
-});
+})->middleware('Active');
 
-Route::get('izvjestaji/promet', 'IzvjestajController@promet');
+Route::get('izvjestaji/promet', 'IzvjestajController@promet')->middleware('Active');
 
 
 
@@ -114,7 +112,7 @@ Route::get('izvjestaji/promet', 'IzvjestajController@promet');
 
 
 ////////////////////////////////////////////////////Administracija itd..
-Route::get('interniNacinPlacanja/{id}/delete', ['as' => 'interni.delete', 'uses' => 'InterniNacinPlacanjaController@delete']);
+Route::get('interniNacinPlacanja/{id}/delete', ['as' => 'interni.delete', 'uses' => 'InterniNacinPlacanjaController@delete'])->middleware('Active');
 Route::resource('interniNacinPlacanja','InterniNacinPlacanjaController');
 
 

@@ -17,6 +17,12 @@ class BlagajnaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('Active');
+    }
+
     public function index()
     {
         return view('blagajna.index');

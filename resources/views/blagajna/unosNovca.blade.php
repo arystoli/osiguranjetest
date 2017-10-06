@@ -4,9 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-14">
-            <div class="panel panel-default">
-                <div class="panel-heading">Blagajna Unos Novca
-                </div>
+            <div class="page-header">  
+                <h1>Blagajna | Unos Novca</h1></div>
                 @include('menus.menuBlagajna')
 
                 <div class="panel-body">

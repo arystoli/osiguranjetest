@@ -4,9 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Interni Načini Plaćanja
-                </div>
+             <div class="page-header">  
+                <h1>Interni načini plaćanja</h1></div>
 
                 <div class="panel-heading">
                     @include('menus.adminMenu')

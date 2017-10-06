@@ -3,13 +3,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Administracija
-                </div>
-            </div>
-
-            <div class="panel panel-default">
-                    <div class="panel-heading">
+             <div class="page-header">  
+                <h1>Administracija</h1></div>
+            
                     @include('menus.adminMenu')
                     </div>
             </div>

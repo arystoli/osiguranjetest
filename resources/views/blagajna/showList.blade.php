@@ -3,11 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-14">
-            <div class="panel panel-default">
-                <div class="panel-heading">Blagajna Pregled</div>
+        <div class="col-md-14">            
+                <div class="page-header"><h1>Blagajna | Pregled</h1></div>
                 @include('menus.menuBlagajna')
-
                 <div class="panel-body">
 
                 <div class="container">

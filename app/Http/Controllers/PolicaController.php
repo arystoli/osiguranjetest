@@ -82,7 +82,7 @@ class PolicaController extends Controller
 			$polica = Polica::firstOrCreate(['RegistarskaOznaka' => $request->input('RegistarskaOznaka')], $data);
             //$polica->fill($data);
 
-            var_dump($data);
+            //var_dump($data);
             // ================= Micanje nepotrebnih podataka iz $data objekta
             unset($data['interniDobavljac']);
             unset($data['eksterniDobavljac']);

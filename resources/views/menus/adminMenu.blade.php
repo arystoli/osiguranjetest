@@ -1,19 +1,8 @@
-					<a class="nav-link" href="{{ url('/home') }}"> Home  <span class="sr-only">(current)</span></a>
 
-                    |
-                  
-                  
-                    <a class="nav-link" href="{{ url('/getAllPolicas') }}"> Pregled polica </a>
+<nav class="navbar">
 
-                    |
-                 
-                  
-                    <a class="nav-link" href="{{ url('/polica') }}"> Izrada Police </a>
+	<a class="navbar-brand" href="{{ url('/home') }}">Home</a>        
 
-                    |
+    <a class="navbar-brand" href="{{ url('/interniNacinPlacanja') }}">Int. Naćini plaćanja</a>
 
-                    <a class="nav-link" href="{{ url('/blagajna') }}"> Blagajna </a>
-
-                    |
-
-                    <a class="nav-link" href="{{ url('/interniNacinPlacanja') }}"> Int. Naćini plaćanja </a>
+</nav>
