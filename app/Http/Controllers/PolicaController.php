@@ -193,11 +193,11 @@ class PolicaController extends Controller
 
             //Ovaj dio treba enable nakon testiranja podataka
             $eh = new EHAPI();
-            //$policaData = $eh->postPolica($post_data);
-            //var_dump($policaData);
+            $policaData = $eh->postPolica($post_data);
+            var_dump($policaData);
             
 
-            //return view('polica.cijene', ['polica' => $policaData]);
+            return view('polica.cijene', ['polica' => $policaData]);
             
             }
     }

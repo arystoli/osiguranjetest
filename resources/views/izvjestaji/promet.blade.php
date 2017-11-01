@@ -15,7 +15,7 @@
                   <li role="presentation"><a href="{{ url('/izvjestaji/police') }}">Sve police</a></li>
                   <li role="presentation"><a href="{{ url('/izvjestaji/radnici') }}">Radnici</a></li>
                 </ul>
-
+              </div>
                 <div class="row">
                 <div class="col-md-5"><form action="{{ url('izvjestaji/promet') }}" method="get" >
                     {{Form::label('Odabir datuma:')}}

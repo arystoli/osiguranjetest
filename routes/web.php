@@ -87,9 +87,7 @@ Route::get('sendPostData', array('as' => 'sendPostData', function()
 
 Route::get('izvjestaji/police', 'ListaPolicaController@index')->middleware('Active');
 
-Route::get('izvjestaji/radnici', function () {
-    return view('izvjestaji.radnici');
-})->middleware('Active');
+Route::get('izvjestaji/radnici', 'IzvjestajController@radnici')->middleware('Active');
 
 Route::get('izvjestaji/promet', 'IzvjestajController@promet')->middleware('Active');
 

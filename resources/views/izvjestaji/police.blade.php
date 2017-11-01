@@ -15,9 +15,7 @@
                   <li role="presentation" class="active"><a href="{{ url('/izvjestaji/police') }}">Sve 
                   police</a></li>
                   <li role="presentation"><a href="{{ url('/izvjestaji/radnici') }}">Radnici</a></li>
-                </ul>
-
-                                    
+                </ul>                                    
                 </div>
 
                 <div class="panel panel-default">
