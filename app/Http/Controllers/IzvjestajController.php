@@ -119,17 +119,38 @@ class IzvjestajController extends Controller
                 //Dohvat svih operatera
                 $users = DB::table('users')->get();
                 foreach($users as $user)
-                {         
-                    $policas = DB::table('policas')->whereDate('created_at', '=',
-                    $date)->where('operater', $user->id)->orderBy('id', 'desc')->get();
+                {   
+                    if ($timeChosen == 'month') {
+                        $date1 = Carbon::now();
+                        $date2 = Carbon::now()->subMonths(1);      
+                        $policas = DB::table('policas')->where('created_at', '>', $date2)->
+                        where('created_at', '<', $date1)->where('operater',
+                            $user->id)->orderBy('id', 'desc')->get();
+
+                          }
+                    elseif ($timeChosen == 'day') {
+                        $policas = DB::table('policas')->whereDate('created_at', '=', $date)->where('operater',
+                        $user->id)->orderBy('id', 'desc')->get();
+                    }
+                    else  {
+                             $policas = DB::table('policas')->whereDate('created_at', '=', $date)->where('operater',
+                        $user->id)->orderBy('id', 'desc')->get();
+                                 }             
+
+                    //var_dump($policas);
+                   
+                    
                     $premija = 0;
                     $brPolica = 0;
                     foreach ($policas as $polica) {
                         $premija+=$polica->Premija;
                         $brPolica++;
                     }
-                    $userData[$user->name][$timeChosen]['iznos'] = $premija;
-                    $userData[$user->name][$timeChosen]['brPolica'] = $brPolica;
+                    
+                    $userData[$user->id]['userName'] = $user->name;
+                    $userData[$user->id][$timeChosen]['iznos'] = $premija;
+                    $userData[$user->id][$timeChosen]['brPolica'] = $brPolica;
+                    
 
                     foreach($interniNaciniPlacanja as $inp)
                             {   
@@ -148,8 +169,8 @@ class IzvjestajController extends Controller
                                 }             
                                 //U array se spremaju svi izračuni sume načina plaćanja
                                 //za pojedinog korisnika te se dodaju u korisnikov array
-                                $userData[$user->name][$timeChosen]['inp'][$inp->naziv]['brPolica'] = $brPolicaInp;
-                                $userData[$user->name][$timeChosen]['inp'][$inp->naziv]['iznos'] = $premijaInp;
+                                $userData[$user->id][$timeChosen]['inp'][$inp->naziv]['brPolica'] = $brPolicaInp;
+                                $userData[$user->id][$timeChosen]['inp'][$inp->naziv]['iznos'] = $premijaInp;
                             }                   
                 }
                 return $userData;
@@ -165,18 +186,22 @@ class IzvjestajController extends Controller
 
             //Dohvat polica za današnji dan  
             $users = DB::table('users')->get();            
-            $datum = Carbon::now()->format('Y-m-d') . " 00:00:00";
-            $userData = getUserDataInDate($datum, 'danas', $userData);
-            $userData = getUserDataInDate($datum, 'test', $userData);            
+            //$datum = Carbon::now()->format('Y-m-d') . " 00:00:00";
+            $date1 = Carbon::parse($testDate);
+            //echo $date1 . ' Best Date Carbon Bro';
+            $userData = getUserDataInDate($date1, 'day', $userData);
+            $userData = getUserDataInDate($date1, 'month', $userData);
+            //$userData = getUserDataInDate($date1, 'jucer', $userData);           
 
             var_dump($userData);
+            
             //////////////////////////////////////////////////
 
 
 
             // Handle multiple database requests to generate per day outputs:
             // po nacinu placanja, gotovina, kartica, itd, itd, teta1, teta2
-            return view('izvjestaji.radnici', ['userData' => $userData,                
+            return view('izvjestaji.radnici', ['userData' => $userData, 'inp' => $interniNaciniPlacanja,                
                 'datumstr' => $testDate]);
         }
         else{
